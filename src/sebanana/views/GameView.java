@@ -18,6 +18,7 @@ import sebanana.models.GameModel;
 public class GameView extends BorderPane implements InvalidationListener {
     
     private GameModel gameModel;
+    private GameviewController gameViewController;
 
     public GameView() throws IOException {
         FXMLLoader loader = new FXMLLoader(
@@ -25,6 +26,7 @@ public class GameView extends BorderPane implements InvalidationListener {
                 );
         loader.setRoot(this);
         loader.load();
+        gameViewController = loader.getController();
     }
 
     public GameModel getGameModel() {
@@ -34,13 +36,22 @@ public class GameView extends BorderPane implements InvalidationListener {
     public void setGameModel(GameModel gameModel) {
         this.gameModel = gameModel;
         gameModel.addListener(this);
+        
+        invalidated(gameModel); // Klein hackje wrs niet forever.
+    }
+    
+    private void setContentText(String text){
+        gameViewController.setContent(text);
     }
 
     @Override
     public void invalidated(Observable o) {
-        // Update de gameview
+        System.out.println("Dit is geruned");
+        System.out.println(gameModel.getContent());
+        setContentText(gameModel.getContent());
+        // Die " " + is klein voorlopig hackje
+        gameViewController.setRoomName(" " + gameModel.getRoomString());
     }
-    
     
     
 }

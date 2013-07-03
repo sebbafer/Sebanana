@@ -15,7 +15,7 @@ public class Sebanana extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-        GameModel gameModel = new GameModel();
+        GameModel gameModel = GameModel.getInstance();
         GameView view = new GameView();
         view.setGameModel(gameModel);
         Scene scene = new Scene(view);
