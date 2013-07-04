@@ -62,7 +62,8 @@ public class GameModel implements Observable {
         // afhankelijk van het level.
         // Dit gaat wrs. van een ander deelmodel komen ofzo.
         return "Welkom bij het beste spel ooit. \n"
-                + "Hier komt willekeurige tekst dat u door het spel gaat leiden.";
+                + "Hier komt willekeurige tekst dat u door het spel gaat leiden.\n"
+                + "Hier nog een zin enzo.";
         
     }
     

@@ -15,11 +15,17 @@ public class Sebanana extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
+        // View en model
         GameModel gameModel = GameModel.getInstance();
         GameView view = new GameView();
         view.setGameModel(gameModel);
+        
+        // Scene bouwen
         Scene scene = new Scene(view);
+        
+        // Stage instellen
         primaryStage.setScene(scene);
+        primaryStage.setTitle("Sebanana het spel");
         primaryStage.show();
     }
 
