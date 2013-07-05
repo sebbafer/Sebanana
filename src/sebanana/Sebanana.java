@@ -17,7 +17,7 @@ public class Sebanana extends Application {
     public void start(Stage primaryStage) throws IOException {
         // View en model
         GameModel gameModel = GameModel.getInstance();
-        GameView view = new GameView();
+        GameView view = new GameView(primaryStage);
         view.setGameModel(gameModel);
         
         // Scene bouwen

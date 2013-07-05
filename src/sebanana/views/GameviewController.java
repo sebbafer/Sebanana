@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -13,9 +14,10 @@ import javafx.scene.control.Label;
  */
 public class GameviewController implements Initializable {
     
+    private Stage stage;
+    
     @FXML
     private Label content;
-    
     @FXML
     private Label roomLabel;
 
@@ -38,5 +40,20 @@ public class GameviewController implements Initializable {
         roomLabel.setText(name);
     }
     
-    // getter ook nog enzoo
+    public String getRoomName(){
+        return roomLabel.getText();
+    }
+
+    public Stage getStage() {
+        return stage;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+    
+    public void closeStage(){
+        stage.close();
+    }
+    
 }
