@@ -36,7 +36,7 @@
         <Menu mnemonicParsing="false" text="Bewerk" />
         <Menu mnemonicParsing="false" text="Hulp">
           <items>
-            <MenuItem mnemonicParsing="false" text="Over" />
+            <MenuItem mnemonicParsing="false" text="Over" onAction="#showAboutWindow"  />
           </items>
         </Menu>
       </menus>
