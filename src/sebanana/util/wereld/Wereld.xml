@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<wereld>
+    <buildings>
+        <building name="gebouw1">
+            <x>20</x>
+            <y>50</y>
+            <width>70</width>
+            <height>125</height>
+        </building>
+        <building name="gebouw2">
+            <x>50</x>
+            <y>20</y>
+            <width>40</width>
+            <height>99</height>
+        </building>
+        <building name="gebouw3">
+            <x>100</x>
+            <y>100</y>
+            <width>50</width>
+            <height>50</height>
+        </building>
+        <building name="gebouw4">
+            <x>200</x>
+            <y>200</y>
+            <width>100</width>
+            <height>100</height>
+        </building>
+    </buildings>
+    <containspersons>
+        <containsperson name="jantje">
+            <x>20</x>
+            <y>20</y>
+            <radius>10</radius>
+            <hello>Hallo! ik ben Jantje, heb je een klavertje voor mij?</hello>
+            <yes>jeeej!</yes>
+            <no>ween :( wil je er eentje voor mij zoeken?</no>
+            <iditem>1</iditem>
+        </containsperson>
+    </containspersons>
+    <boringpersons>
+        <boringperson name="Jane">
+            <x>190</x>
+            <y>190</y>
+            <radius>10</radius>
+            <zin>Ik verveel me :( </zin>
+        </boringperson>
+    </boringpersons>
+    <items>
+        <item name="klavertje" id="1">
+            <x>170</x>
+            <y>170</y>
+            <width>5</width>
+            <height>5</height>
+            <afbeelding>Image/spklavertje.png</afbeelding>
+            <color>green</color>
+        </item>
+         <item name="klavertje" id="1">
+            <x>160</x>
+            <y>160</y>
+            <width>5</width>
+            <height>5</height>
+            <afbeelding>Image/spklavertje.png</afbeelding>
+            <color>green</color>
+        </item>
+        <item name="roos" id="2">
+            <x>100</x>
+            <y>300</y>
+            <width>5</width>
+            <height>5</height>
+            <afbeelding>Image/rose.png</afbeelding>
+            <color>red</color>
+        </item>
+    </items>
+</wereld>
