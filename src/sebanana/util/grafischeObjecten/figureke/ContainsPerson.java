@@ -19,7 +19,7 @@ public class ContainsPerson extends Person{
     private String yes;
     private String no;
     private int idItem;
-    private String zin;
+    private String zin; //reserve zin
     private boolean klaar; // al met gesproken
     
     @XmlElement (name = "hello")
@@ -82,9 +82,9 @@ public class ContainsPerson extends Person{
     
     @Override
     public void doAction(final ActionBenodigdheden ab) {
-        Timeline timeline = new Timeline();
         
         if(!isKlaar()){
+          Timeline timeline = new Timeline();
           timeline.getKeyFrames().addAll(
                 new KeyFrame(Duration.seconds(0),
                   new EventHandler() {
@@ -107,12 +107,12 @@ public class ContainsPerson extends Person{
                              
                          }
                 })
-                
-                
-                
-                
                 );
+
+          
            timeline.playFromStart();
+           
+           
         }else{
             ab.getLabel().setText(zin);
         }

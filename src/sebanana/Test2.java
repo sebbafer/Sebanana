@@ -1,10 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sebanana;
 
-import java.io.File;
 import java.util.HashMap;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -16,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.xml.bind.JAXBException;
 import sebanana.util.grafischeObjecten.figureke.ActionBenodigdheden;
@@ -61,7 +55,7 @@ public class Test2 extends Application {
     private final Group root = new Group();
     @Override
     public void start(final Stage primaryStage) throws JAXBException {
-        primaryStage.setTitle("een");
+        primaryStage.setTitle("Test2");
         
         opslag = new ObjectenOpslag(root, null);
         
