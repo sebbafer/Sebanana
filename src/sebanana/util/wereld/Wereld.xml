@@ -38,6 +38,8 @@
             <yes>jeeej!</yes>
             <no>ween :( wil je er eentje voor mij zoeken?</no>
             <iditem>1</iditem>
+            <zin>Ik ben heel blij met mijn klavertje!</zin>
+            <klaar>false</klaar>
         </containsperson>
     </containspersons>
     <boringpersons>

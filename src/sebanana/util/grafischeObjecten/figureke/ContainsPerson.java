@@ -19,7 +19,8 @@ public class ContainsPerson extends Person{
     private String yes;
     private String no;
     private int idItem;
- 
+    private String zin;
+    private boolean klaar; // al met gesproken
     
     @XmlElement (name = "hello")
     public String getHello() {
@@ -48,6 +49,27 @@ public class ContainsPerson extends Person{
         this.no = no;
     }
 
+    @XmlElement (name = "zin")
+    public String getZin() {
+        return zin;
+    }
+
+    public void setZin(String zin) {
+        this.zin = zin;
+    }
+    
+    public boolean isKlaar(){
+        return klaar;
+    }
+    
+    public void setKlaar(String klaar){
+        this.klaar= Boolean.getBoolean(zin);
+    }
+    
+    public String getKlaar(){
+        return Boolean.toString(klaar);
+    }
+    
     @XmlElement (name = "iditem")
     public int getIdItem() {
         return idItem;
@@ -62,8 +84,8 @@ public class ContainsPerson extends Person{
     public void doAction(final ActionBenodigdheden ab) {
         Timeline timeline = new Timeline();
         
-        
-        timeline.getKeyFrames().addAll(
+        if(!isKlaar()){
+          timeline.getKeyFrames().addAll(
                 new KeyFrame(Duration.seconds(0),
                   new EventHandler() {
                          @Override
@@ -77,6 +99,7 @@ public class ContainsPerson extends Person{
                           public void handle(Event event) {
                              if(ab.getRugzak().remove(idItem)){
                                     ab.getLabel().setText(yes);
+                                    klaar=true;
                              }else{
                                    ab.getLabel().setText(no);
                              }
@@ -89,7 +112,10 @@ public class ContainsPerson extends Person{
                 
                 
                 );
-         timeline.playFromStart();
+           timeline.playFromStart();
+        }else{
+            ab.getLabel().setText(zin);
+        }
         
       
     }
