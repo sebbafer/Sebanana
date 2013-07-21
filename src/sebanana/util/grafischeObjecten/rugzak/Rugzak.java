@@ -9,7 +9,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import sebanana.util.grafischeObjecten.figureke.Item;
+import sebanana.util.wereld.World;
 
 /**
  *
@@ -18,31 +21,42 @@ import sebanana.util.grafischeObjecten.figureke.Item;
 public class Rugzak extends HBox{
     private TableView<Item> tabel;
     private final ObservableList<Item> lijst = FXCollections.observableArrayList();
+    private RugzakLezer rl;
 
     public Rugzak() {
+        try {
+            JAXBContext jc = JAXBContext.newInstance(RugzakLezer.class);
+            rl = (RugzakLezer) jc.createUnmarshaller().unmarshal(RugzakLezer.class.getResource("Rugzak.xml"));
+        } catch (JAXBException ex) {
+            throw new RuntimeException("JAXB:" + ex);
+        } 
+        
+        for( Item i : rl.getItems()){
+            lijst.add(i);
+        }
+        
+        tabel = new TableView<>(lijst);
 
-    tabel = new TableView<>(lijst);
-    
-    TableColumn k = new TableColumn("Rugzak");
-    
-    k.setCellValueFactory( new PropertyValueFactory<Item,Image>("Image"));
-    
-    ItemImageCellFactory cf = new ItemImageCellFactory();
-    k.setCellFactory(cf);
-    k.setEditable(false);
-    k.setMinWidth(75);
-    tabel.getColumns().add(k);
+        TableColumn k = new TableColumn("Rugzak");
 
-    tabel.setMaxWidth(80);
-    tabel.setTranslateX(500);
-    tabel.setTranslateY(50);
-    
-    
-    this.getChildren().add(tabel);
+        k.setCellValueFactory( new PropertyValueFactory<Item,Image>("Image"));
+
+        ItemImageCellFactory cf = new ItemImageCellFactory();
+        k.setCellFactory(cf);
+        k.setEditable(false);
+        k.setMinWidth(75);
+        tabel.getColumns().add(k);
+
+        tabel.setMaxWidth(80);
+        tabel.setTranslateX(500);
+        tabel.setTranslateY(50);
+
+
+        this.getChildren().add(tabel);
     
     }
     
-    
+   
     public Node getTabel(){
         return tabel;
     }
@@ -53,6 +67,7 @@ public class Rugzak extends HBox{
     }
     
     public boolean remove(Item i){
+        rl.getItems().remove(i);
         return lijst.remove(i);
     }
     
@@ -76,11 +91,15 @@ public class Rugzak extends HBox{
     
     public boolean remove(int id){
         Iterator<Item> it = lijst.iterator();
+        int teller = 0;
         while(it.hasNext()){
             if(it.next().getId() == id){
+                //verwijderen uit rugzaklezer
+                rl.getItems().remove(lijst.get(teller));
                 it.remove();
                 return true;
             }
+            teller++;
         }
         return false;
     }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<rugzak>
+    <items>
+        <item name="kaartje" id="1">
+            <afbeelding>kaartje.png</afbeelding>
+        </item>
+    </items>
+</rugzak>

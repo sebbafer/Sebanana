@@ -10,6 +10,7 @@ import javafx.util.Callback;
  *
  * @author Ellen
  */
+            //zielig
 public class ItemImageCellFactory<S, T> implements Callback<TableColumn<S, T>, TableCell<S, T>> {
      
     @Override

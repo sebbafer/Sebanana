@@ -37,7 +37,7 @@
             <hello>Hallo! ik ben Jantje, heb je een klavertje voor mij?</hello>
             <yes>jeeej!</yes>
             <no>ween :( wil je er eentje voor mij zoeken?</no>
-            <iditem>1</iditem>
+            <iditem>21</iditem>
             <zin>Ik ben heel blij met mijn klavertje!</zin>
             <klaar>false</klaar>
         </containsperson>
@@ -51,7 +51,7 @@
         </boringperson>
     </boringpersons>
     <items>
-        <item name="klavertje" id="1">
+        <item name="klavertje" id="21">
             <x>170</x>
             <y>170</y>
             <width>5</width>
@@ -59,7 +59,7 @@
             <afbeelding>spklavertje.png</afbeelding>
             <color>green</color>
         </item>
-         <item name="klavertje" id="1">
+         <item name="klavertje" id="21">
             <x>160</x>
             <y>160</y>
             <width>5</width>
@@ -67,7 +67,7 @@
             <afbeelding>spklavertje.png</afbeelding>
             <color>green</color>
         </item>
-        <item name="roos" id="2">
+        <item name="roos" id="22">
             <x>100</x>
             <y>300</y>
             <width>5</width>
