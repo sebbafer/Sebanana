@@ -78,21 +78,26 @@ public abstract class Person extends Figureke implements Spatiebaar{
     }
     
     public void playSaaieTijdlijn(final ActionBenodigdheden ab){
-        if(timeline == null){
-        timeline = new Timeline();
-        for(int i=0; i < zinnen.size(); i++){
-          final int hulp = i;
-          timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(hulp),
-                  new EventHandler() {
-                         @Override
-                          public void handle(Event event) {
-                                ab.getTekstVak().setText(zinnen.get(hulp));
-                         }
-                }));
+       if(zinnen.size() == 1){
+         ab.getTekstVak().setText(zinnen.get(0));
+          
+       }else{
+            if(timeline == null){
+                    timeline = new Timeline();
+                    for(int i=0; i < zinnen.size(); i++){
+                      final int hulp = i;
+                      timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(hulp),
+                              new EventHandler() {
+                                     @Override
+                                      public void handle(Event event) {
+                                            ab.getTekstVak().setText(zinnen.get(hulp));
+                                     }
+                            }));
+                        }
+                 }
 
-         }
-        }
-        timeline.playFromStart();
+                timeline.playFromStart();
+       }
     }
     
 }

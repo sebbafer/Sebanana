@@ -15,20 +15,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="containsperson")
 public class ContainsPerson extends KlaarPersoon{
     private static final String CONTAINS_PERSON = "ContainsPerson";
-    private String hello;
     private String yes;
     private String no;
     private int idItem;
-    
-    @XmlElement (name = "hello")
-    public String getHello() {
-        return hello;
-    }
-
-    public void setHello(String hello) {
-        this.hello = hello;
-    }
-    
     
     @XmlElement (name = "yes")
     public String getYes() {
@@ -69,18 +58,18 @@ public class ContainsPerson extends KlaarPersoon{
                   new EventHandler() {
                          @Override
                           public void handle(Event event) {
-                                ab.getTekstVak().setText(hello);
+                                ab.getTekstVak().setText(getHello());
                          }
                 }),
                 new KeyFrame(Duration.seconds(1),
                   new EventHandler() {
                          @Override
                           public void handle(Event event) {
-                             if(ab.getRugzak().remove(idItem)){
-                                    ab.getTekstVak().setText(yes);
+                             if(ab.getRugzak().remove(getIdItem())){
+                                    ab.getTekstVak().setText(getYes());
                                     setKlaar(true);
                              }else{
-                                   ab.getTekstVak().setText(no);
+                                   ab.getTekstVak().setText(getNo());
                              }
                              
                              
