@@ -87,6 +87,27 @@
             </zinnen>
         </boringperson>
     </boringpersons>
+    <rcpersons>
+        <rcperson name="testpersoon a">
+            <x>200</x>
+            <y>400</y>
+            <radius>10</radius>
+            <hello>Hallo! ik wil een klavertje</hello>
+            <iditem>21</iditem>
+            <yes>dankje!!!</yes>
+            <no>o das jammer</no>
+            <geef>Hier is een snoepje</geef>
+            <item name="snoepje" id="211">
+                <afbeelding>snoepje.png</afbeelding>
+                <color>red</color>
+            </item>
+            <zinnen>
+                <zin>je hebt al iets gekregen</zin>
+                <zin>ok</zin>
+                <zin>totziens!</zin>
+            </zinnen>
+        </rcperson>
+    </rcpersons>
     <items>
         <item name="klavertje" id="21">
             <x>170</x>

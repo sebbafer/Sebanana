@@ -15,6 +15,7 @@ import sebanana.util.grafischeObjecten.figureke.Item;
 import sebanana.util.grafischeObjecten.figureke.Spatiebaar;
 import sebanana.util.grafischeObjecten.figureke.BoringPerson;
 import sebanana.util.grafischeObjecten.figureke.ContainsPerson;
+import sebanana.util.grafischeObjecten.figureke.RCPerson;
 import sebanana.util.grafischeObjecten.figureke.ReceivePerson;
 import sebanana.util.grafischeObjecten.figureke.Tegenloopbaar;
 
@@ -61,6 +62,11 @@ public class ObjectenOpslag {
          * spatiebaar
          */
         for(BoringPerson b : w.getPersons()){
+            spatiesdingen.add(b);
+            children.add(b.getNode());
+        }
+        
+        for(RCPerson b : w.getRCPersons()){
             spatiesdingen.add(b);
             children.add(b.getNode());
         }
