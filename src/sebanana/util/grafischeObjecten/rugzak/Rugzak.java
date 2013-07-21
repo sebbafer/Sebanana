@@ -3,12 +3,13 @@ package sebanana.util.grafischeObjecten.rugzak;
 import java.util.Iterator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -18,7 +19,7 @@ import sebanana.util.grafischeObjecten.figureke.Item;
  *
  * @author Ellen
  */
-public class Rugzak extends HBox{
+public class Rugzak extends VBox{
     private TableView<Item> tabel;
     private final ObservableList<Item> lijst = FXCollections.observableArrayList();
     private RugzakLezer rl;
@@ -47,12 +48,15 @@ public class Rugzak extends HBox{
         k.setMinWidth(75);
         tabel.getColumns().add(k);
 
-        tabel.setMaxWidth(80);
-        tabel.setTranslateX(500);
-        tabel.setTranslateY(50);
-
+        this.setMaxWidth(80);
+        this.setTranslateX(500);
+        this.setTranslateY(50);
+        this.setAlignment(Pos.CENTER);
 
         this.getChildren().add(tabel);
+        this.setSpacing(20);
+        
+        
     
     }
     
