@@ -1,4 +1,4 @@
-package sebanana.util.grafischeObjecten.spatie.person;
+package sebanana.util.grafischeObjecten.figureke;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -7,7 +7,6 @@ import javafx.event.EventHandler;
 import javafx.util.Duration;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import sebanana.util.grafischeObjecten.spatie.ActionBenodigdheden;
 
 /**
  *

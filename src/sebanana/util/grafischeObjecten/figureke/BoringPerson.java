@@ -1,6 +1,4 @@
-package sebanana.util.grafischeObjecten.spatie.person;
-
-import sebanana.util.grafischeObjecten.spatie.ActionBenodigdheden;
+package sebanana.util.grafischeObjecten.figureke;
 
 /**
  *

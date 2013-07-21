@@ -7,11 +7,11 @@ import java.util.Map;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
-import sebanana.util.grafischeObjecten.Building;
-import sebanana.util.grafischeObjecten.Figureke;
-import sebanana.util.grafischeObjecten.spatie.Item;
-import sebanana.util.grafischeObjecten.spatie.person.BoringPerson;
-import sebanana.util.grafischeObjecten.spatie.person.ContainsPerson;
+import sebanana.util.grafischeObjecten.figureke.Building;
+import sebanana.util.grafischeObjecten.figureke.Figureke;
+import sebanana.util.grafischeObjecten.figureke.Item;
+import sebanana.util.grafischeObjecten.figureke.BoringPerson;
+import sebanana.util.grafischeObjecten.figureke.ContainsPerson;
 
 
 /**

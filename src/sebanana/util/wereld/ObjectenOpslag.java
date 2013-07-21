@@ -9,12 +9,12 @@ import javafx.scene.Group;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import sebanana.util.grafischeObjecten.Building;
-import sebanana.util.grafischeObjecten.Figureke;
-import sebanana.util.grafischeObjecten.spatie.Item;
-import sebanana.util.grafischeObjecten.spatie.Spatiebaar;
-import sebanana.util.grafischeObjecten.spatie.person.BoringPerson;
-import sebanana.util.grafischeObjecten.spatie.person.ContainsPerson;
+import sebanana.util.grafischeObjecten.figureke.Building;
+import sebanana.util.grafischeObjecten.figureke.Figureke;
+import sebanana.util.grafischeObjecten.figureke.Item;
+import sebanana.util.grafischeObjecten.figureke.Spatiebaar;
+import sebanana.util.grafischeObjecten.figureke.BoringPerson;
+import sebanana.util.grafischeObjecten.figureke.ContainsPerson;
 
 /**
  *

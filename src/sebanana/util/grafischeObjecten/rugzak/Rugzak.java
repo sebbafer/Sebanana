@@ -9,7 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
-import sebanana.util.grafischeObjecten.spatie.Item;
+import sebanana.util.grafischeObjecten.figureke.Item;
 
 /**
  *

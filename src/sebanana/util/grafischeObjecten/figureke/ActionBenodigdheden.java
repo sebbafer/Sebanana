@@ -1,4 +1,4 @@
-package sebanana.util.grafischeObjecten.spatie;
+package sebanana.util.grafischeObjecten.figureke;
 
 
 

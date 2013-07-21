@@ -1,14 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package sebanana.util.grafischeObjecten.spatie.person;
+package sebanana.util.grafischeObjecten.figureke;
 
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
-import sebanana.util.grafischeObjecten.spatie.Spatiebaar;
 
 /**
  *

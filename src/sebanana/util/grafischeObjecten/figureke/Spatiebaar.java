@@ -2,9 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sebanana.util.grafischeObjecten.spatie;
-
-import sebanana.util.grafischeObjecten.Figureke;
+package sebanana.util.grafischeObjecten.figureke;
 
 /**
  *
