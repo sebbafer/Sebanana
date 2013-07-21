@@ -29,66 +29,8 @@
             <height>100</height>
         </building>
     </buildings>
-    <containspersons>
-        <containsperson name="jantje">
-            <x>20</x>
-            <y>20</y>
-            <radius>10</radius>
-            <hello>Hallo! ik ben Jantje, heb je een klavertje voor mij?</hello>
-            <yes>jeeej!</yes>
-            <no>ween :( wil je er eentje voor mij zoeken?</no>
-            <iditem>21</iditem>
-            <zinnen>
-                <zin>Ik ben heel blij met mijn klavertje!</zin>
-                <zin>dankje!!!</zin>
-            </zinnen>
-            <klaar>false</klaar>
-        </containsperson>
-        <containsperson name="peuter">
-            <x>60</x>
-            <y>300</y>
-            <radius>10</radius>
-            <hello>ik wil een snoepje!!</hello>
-            <yes>jeeej!</yes>
-            <no>weeeeeeeeeeeeeeeeeeeeee weeeeeeeeeeeeee weeeeeeeeeee</no>
-            <iditem>211</iditem>
-            <zinnen>
-                <zin>joepie!</zin>
-            </zinnen>
-            <klaar>false</klaar>
-        </containsperson>
-    </containspersons>
-    <receivepersons>
-        <receiveperson name="oma">
-            <x>300</x>
-            <y>320</y>
-            <radius>10</radius>
-            <hello>Hallo!</hello>
-            <geef>Hier is een snoepje</geef>
-            <item name="snoepje" id="211">
-                <afbeelding>snoepje.png</afbeelding>
-                <color>red</color>
-            </item>
-            <zinnen>
-                <zin>je hebt al iets gekregen</zin>
-                <zin>ok</zin>
-                <zin>totziens!</zin>
-            </zinnen>
-        </receiveperson>
-    </receivepersons>
-    <boringpersons>
-        <boringperson name="Jane">
-            <x>190</x>
-            <y>190</y>
-            <radius>10</radius>
-            <zinnen>
-                <zin>Het is mooi weer.</zin>
-                <zin>Maar ik verveel me :(</zin>
-            </zinnen>
-        </boringperson>
-    </boringpersons>
-    <rcpersons>
-        <rcperson name="testpersoon a">
+    <basicpersons>
+        <person name="testpersoon a">
             <x>200</x>
             <y>400</y>
             <radius>10</radius>
@@ -106,8 +48,59 @@
                 <zin>ok</zin>
                 <zin>totziens!</zin>
             </zinnen>
-        </rcperson>
-    </rcpersons>
+        </person>
+        <person name="Jane">
+            <x>190</x>
+            <y>190</y>
+            <radius>10</radius>
+            <zinnen>
+                <zin>Het is mooi weer.</zin>
+                <zin>Maar ik verveel me :(</zin>
+            </zinnen>
+            <saai>true</saai>
+        </person>
+        <person name="oma">
+            <x>300</x>
+            <y>320</y>
+            <radius>10</radius>
+            <hello>Hallo!</hello>
+            <geef>Hier is een snoepje</geef>
+            <item name="snoepje" id="211">
+                <afbeelding>snoepje.png</afbeelding>
+                <color>red</color>
+            </item>
+            <zinnen>
+                <zin>je hebt al iets gekregen</zin>
+                <zin>ok</zin>
+                <zin>totziens!</zin>
+            </zinnen>
+        </person>
+         <person name="jantje">
+            <x>20</x>
+            <y>20</y>
+            <radius>10</radius>
+            <hello>Hallo! ik ben Jantje, heb je een klavertje voor mij?</hello>
+            <yes>jeeej!</yes>
+            <no>ween :( wil je er eentje voor mij zoeken?</no>
+            <iditem>21</iditem>
+            <zinnen>
+                <zin>Ik ben heel blij met mijn klavertje!</zin>
+                <zin>dankje!!!</zin>
+            </zinnen>
+        </person>
+        <person name="peuter">
+            <x>60</x>
+            <y>300</y>
+            <radius>10</radius>
+            <hello>ik wil een snoepje!!</hello>
+            <yes>jeeej!</yes>
+            <no>weeeeeeeeeeeeeeeeeeeeee weeeeeeeeeeeeee weeeeeeeeeee</no>
+            <iditem>211</iditem>
+            <zinnen>
+                <zin>joepie!</zin>
+            </zinnen>
+        </person>
+    </basicpersons>
     <items>
         <item name="klavertje" id="21">
             <x>170</x>

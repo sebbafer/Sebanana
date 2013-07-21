@@ -22,7 +22,7 @@ public abstract class Person extends Figureke implements Spatiebaar{
     private Shape shape;
     private List<String> zinnen;
     private Timeline timeline;
-    
+    private boolean saai;  
     
     public Person() {
     super.setFill(Color.BLUE);
@@ -77,6 +77,27 @@ public abstract class Person extends Figureke implements Spatiebaar{
         this.zinnen = zinnen;
     }
     
+    
+    /*
+     * saai
+     */
+    public boolean isSaai(){
+        return saai;
+    }
+   
+    @XmlElement (name = "saai")
+    public void setSaai(String saai){
+        this.saai = Boolean.parseBoolean(saai);
+    }
+    
+    public String getSaai(){
+        return Boolean.toString(saai);
+    }
+    
+    public void setSaai(boolean saai){
+       this.saai=saai;
+    }
+    
     public void playSaaieTijdlijn(final ActionBenodigdheden ab){
        if(zinnen.size() == 1){
          ab.getTekstVak().setText(zinnen.get(0));
@@ -99,5 +120,7 @@ public abstract class Person extends Figureke implements Spatiebaar{
                 timeline.playFromStart();
        }
     }
+    
+
     
 }

@@ -7,13 +7,10 @@ import java.util.Map;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import sebanana.util.grafischeObjecten.figureke.BasicPerson;
 import sebanana.util.grafischeObjecten.figureke.Building;
 import sebanana.util.grafischeObjecten.figureke.Figureke;
 import sebanana.util.grafischeObjecten.figureke.Item;
-import sebanana.util.grafischeObjecten.figureke.BoringPerson;
-import sebanana.util.grafischeObjecten.figureke.ContainsPerson;
-import sebanana.util.grafischeObjecten.figureke.RCPerson;
-import sebanana.util.grafischeObjecten.figureke.ReceivePerson;
 
 
 /**
@@ -22,18 +19,14 @@ import sebanana.util.grafischeObjecten.figureke.ReceivePerson;
  */
 @XmlRootElement(name="wereld")
 public class World {
-    
+    private List<BasicPerson> bp;
     private List<Building> buildings;
-    private List<BoringPerson> boringpersons;
-    private List<ContainsPerson> containspersons;
-    private List<ReceivePerson> receivepersons;
     private List<Item> items;
     
     /*
      * hashmap om te weten uit welke lijst een figureke moet verwijderd worden
      */
     private Map<String, List> map;
-    private List<RCPerson> rcpersons;
     
     public World(){
         map = new HashMap<>();
@@ -57,55 +50,6 @@ public class World {
         voegToe(buildings);
     }
 
-    
-    
-    @XmlElementWrapper (name = "rcpersons")
-    @XmlElement (name = "rcperson")
-    public List<RCPerson> getRCPersons() {
-        return rcpersons;
-    }
-
-    public void setRCPersons(List<RCPerson> rcpersons) {
-        this.rcpersons = rcpersons;
-        voegToe(rcpersons);
-    }
-    
-    
-    @XmlElementWrapper (name = "boringpersons")
-    @XmlElement (name = "boringperson")
-    public List<BoringPerson> getPersons() {
-        return boringpersons;
-    }
-
-    public void setPersons(List<BoringPerson> persons) {
-        this.boringpersons = persons;
-        voegToe(persons);
-    }
-
-    @XmlElementWrapper (name = "receivepersons")
-    @XmlElement (name = "receiveperson")
-    public List<ReceivePerson> getReceivePersons() {
-        return receivepersons;
-    }
-
-    public void setReceivePersons(List<ReceivePerson> receiveperson) {
-        this.receivepersons = receiveperson;
-        voegToe(receiveperson);
-    }
-    
-    @XmlElementWrapper (name = "containspersons")
-    @XmlElement (name = "containsperson")
-    public List<ContainsPerson> getContainsPersons() {
-        return containspersons;
-    }
-
-    public void setContainsPersons(List<ContainsPerson> p) {
-        this.containspersons = p;
-        voegToe(p);
-    }
-
-    
-    
     @XmlElementWrapper (name = "items")
     @XmlElement (name = "item")
     public List<Item> getItems() {
@@ -121,7 +65,17 @@ public class World {
         map.get(f.watIsHet()).remove(f);
     }
 
+    @XmlElementWrapper (name = "basicpersons")
+    @XmlElement (name = "person")
+    public List<BasicPerson> getBasicPersons() {
+        return bp;
+    }
 
+    public void setBasicPersons(List<BasicPerson> basicpersons) {
+        this.bp = basicpersons;
+        voegToe(bp);
+    }
+    
     
     
 }

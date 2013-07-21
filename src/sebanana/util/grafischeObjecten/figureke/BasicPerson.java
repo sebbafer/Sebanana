@@ -6,14 +6,12 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.util.Duration;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Ellen
  */
-@XmlRootElement(name="rcperson")
-public class RCPerson extends KlaarPersoon {
+public class BasicPerson extends Person {
     private static final String RC_PERSON = "RCPerson";
     private String geef;
     private Item item;
@@ -21,7 +19,17 @@ public class RCPerson extends KlaarPersoon {
     private String no;
     private int idItem;
     private boolean gekregen = false;
+    private String hello;
 
+
+    @XmlElement (name = "hello")
+    public String getHello() {
+        return hello;
+    }
+
+    public void setHello(String hello) {
+        this.hello = hello;
+    }
     /*
      * krijgen
      */
@@ -72,6 +80,10 @@ public class RCPerson extends KlaarPersoon {
         return item;
     }
     
+
+    
+    
+    
     
     
     @Override
@@ -86,7 +98,7 @@ public class RCPerson extends KlaarPersoon {
 
     @Override
     public void doAction(final ActionBenodigdheden ab) {
-        if(!isKlaar()){
+        if(!isSaai()){
              Timeline timeline = new Timeline();
              int teller = 0;
             //begroeting
@@ -110,6 +122,7 @@ public class RCPerson extends KlaarPersoon {
                                                 ab.getTekstVak().setText(getYes());
                                                 idItem=0;
                                                 gekregen = true;
+                                                setSaai(true);
                                          }else{
                                                ab.getTekstVak().setText(getNo());
                                                gekregen = false;
@@ -117,6 +130,8 @@ public class RCPerson extends KlaarPersoon {
                                      }
                             })  );
                 teller++;
+             }else{
+                 gekregen=true;
              }
              
              //geven
@@ -130,9 +145,7 @@ public class RCPerson extends KlaarPersoon {
                                            ab.getTekstVak().setText(getGeef());
                                            ab.getRugzak().add(item);
                                            item=null;
-                                           setKlaar(true);
-                                         }else{
-                                             System.out.println("nog niks gegeven");
+                                           setSaai(true);
                                          }
                                      }
                             })  );
@@ -141,7 +154,7 @@ public class RCPerson extends KlaarPersoon {
                       
                       
                       
-                       timeline.playFromStart();
+           timeline.playFromStart();
 
         }else{
             playSaaieTijdlijn(ab);
@@ -149,3 +162,4 @@ public class RCPerson extends KlaarPersoon {
     }
     
 }
+
