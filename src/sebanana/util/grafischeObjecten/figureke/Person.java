@@ -1,9 +1,17 @@
 package sebanana.util.grafischeObjecten.figureke;
 
+import java.util.List;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
+import javafx.util.Duration;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 
 /**
  *
@@ -12,7 +20,10 @@ import javafx.scene.shape.Shape;
 public abstract class Person extends Figureke implements Spatiebaar{
     private double radius;
     private Shape shape;
-
+    private List<String> zinnen;
+    private Timeline timeline;
+    
+    
     public Person() {
     super.setFill(Color.BLUE);
     }
@@ -51,5 +62,37 @@ public abstract class Person extends Figureke implements Spatiebaar{
         return false;
     }
     
+    
+    
+    /*
+     * tekst
+     */
+    @XmlElementWrapper (name = "zinnen")
+    @XmlElement (name = "zin")
+    public List<String> getZinnen() {
+        return zinnen;
+    }
+
+    public void setZinnen(List<String> zinnen) {
+        this.zinnen = zinnen;
+    }
+    
+    public void playSaaieTijdlijn(final ActionBenodigdheden ab){
+        if(timeline == null){
+        timeline = new Timeline();
+        for(int i=0; i < zinnen.size(); i++){
+          final int hulp = i;
+          timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(hulp),
+                  new EventHandler() {
+                         @Override
+                          public void handle(Event event) {
+                                ab.getTekstVak().setText(zinnen.get(hulp));
+                         }
+                }));
+
+         }
+        }
+        timeline.playFromStart();
+    }
     
 }

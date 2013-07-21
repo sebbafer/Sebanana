@@ -19,7 +19,6 @@ public class ContainsPerson extends Person{
     private String yes;
     private String no;
     private int idItem;
-    private String zin; //reserve zin
     private boolean klaar; // al met gesproken
     
     @XmlElement (name = "hello")
@@ -49,21 +48,12 @@ public class ContainsPerson extends Person{
         this.no = no;
     }
 
-    @XmlElement (name = "zin")
-    public String getZin() {
-        return zin;
-    }
-
-    public void setZin(String zin) {
-        this.zin = zin;
-    }
-    
     public boolean isKlaar(){
         return klaar;
     }
     
     public void setKlaar(String klaar){
-        this.klaar= Boolean.getBoolean(zin);
+        this.klaar= Boolean.getBoolean(klaar);
     }
     
     public String getKlaar(){
@@ -114,7 +104,7 @@ public class ContainsPerson extends Person{
            
            
         }else{
-            ab.getTekstVak().setText(zin);
+            playSaaieTijdlijn(ab);
         }
         
       

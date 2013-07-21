@@ -38,7 +38,10 @@
             <yes>jeeej!</yes>
             <no>ween :( wil je er eentje voor mij zoeken?</no>
             <iditem>21</iditem>
-            <zin>Ik ben heel blij met mijn klavertje!</zin>
+            <zinnen>
+                <zin>Ik ben heel blij met mijn klavertje!</zin>
+                <zin>dankje!!!</zin>
+            </zinnen>
             <klaar>false</klaar>
         </containsperson>
     </containspersons>
