@@ -87,7 +87,7 @@ public class Test2 extends Application {
         
         
         me = new Me(5.0, 10.0);
-        root.getChildren().add(me.getShape());
+        root.getChildren().add(me.getNode());
         
         
         

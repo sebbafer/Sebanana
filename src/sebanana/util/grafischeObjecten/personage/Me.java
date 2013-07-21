@@ -1,5 +1,6 @@
 package sebanana.util.grafischeObjecten.personage;
 
+import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
@@ -14,6 +15,7 @@ public class Me {
     private Shape shape;
 
     public Me(double h, double w) {
+        //maak vormpje
         this.shape = new Rectangle(h, w);
         shape.setFill(Color.YELLOW);
         this.x = shape.getTranslateX();
@@ -21,9 +23,9 @@ public class Me {
     }
     
     public void verplaats(double x, double y){
-        shape.setTranslateX(x);
+        getNode().setTranslateX(x);
         this.x=x;
-        shape.setTranslateY(y);
+        getNode().setTranslateY(y);
         this.y=y;
     }
 
@@ -37,6 +39,10 @@ public class Me {
 
     public Shape getShape() {
         return shape;
+    }
+    
+    public Node getNode(){
+        return getShape();
     }
     
 }
