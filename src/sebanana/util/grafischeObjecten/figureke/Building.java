@@ -10,6 +10,7 @@ import javafx.scene.shape.Shape;
  * @author Ellen
  */
 public class Building extends Figureke implements Tegenloopbaar{
+   private static final String BUILDING = "building";
    private double height;
    private double width;
    private Shape shape;
@@ -62,7 +63,7 @@ public class Building extends Figureke implements Tegenloopbaar{
 
     @Override
     public String watIsHet() {
-        return "building";
+        return BUILDING;
     }
 
 

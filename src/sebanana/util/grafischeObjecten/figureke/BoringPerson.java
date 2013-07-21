@@ -5,6 +5,7 @@ package sebanana.util.grafischeObjecten.figureke;
  * @author Ellen
  */
 public class BoringPerson extends Person implements Spatiebaar {
+    private static final String BORING_PERSON = "BoringPerson";
     private String zin;
 
    
@@ -32,7 +33,7 @@ public class BoringPerson extends Person implements Spatiebaar {
 
     @Override
     public String watIsHet() {
-        return "BoringPerson";
+        return BORING_PERSON;
     }
     
 }

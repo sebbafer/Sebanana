@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name="containsperson")
 public class ContainsPerson extends Person{
+    private static final String CONTAINS_PERSON = "ContainsPerson";
     private String hello;
     private String yes;
     private String no;
@@ -95,7 +96,7 @@ public class ContainsPerson extends Person{
 
     @Override
     public String watIsHet() {
-        return "ContainsPerson";
+        return CONTAINS_PERSON;
     }
 
     @Override

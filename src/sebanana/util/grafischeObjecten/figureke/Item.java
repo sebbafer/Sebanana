@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author Ellen
  */
 public class Item  extends Figureke implements Spatiebaar{
+   private static final String ITEM = "Item";
    private double height;
    private double width;
    private Shape shape;
@@ -61,6 +62,7 @@ public class Item  extends Figureke implements Spatiebaar{
         this.color = color;
         setFill(Color.valueOf(color));
     }
+    
    
    @Override
    public Shape getShape() {
@@ -142,7 +144,7 @@ public class Item  extends Figureke implements Spatiebaar{
 
     @Override
     public String watIsHet() {
-        return "Item";
+        return ITEM;
     }
 
 }

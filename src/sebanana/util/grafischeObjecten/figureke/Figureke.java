@@ -12,13 +12,14 @@ import javax.xml.bind.annotation.XmlAttribute;
 
 /*
  * !! waarde mogen niet meer aangepast worden na aanmaak !!
+ * exception laten gooien? 
  */
 public abstract class Figureke {
    private double x;
    private double y;
    private String name;
    private Color fill = Color.BLACK;
-   private static  final String imagelocatie = "sebanana/images/";
+   private static final String IMAGELOCATION = "sebanana/images/";
 
 
    public Figureke(){
@@ -81,7 +82,7 @@ public abstract class Figureke {
      * map waar de afbeeldingen opgeslagen zijn
      */
     protected String getImageLocation(){
-        return imagelocatie;
+        return IMAGELOCATION;
     }
    
 }
