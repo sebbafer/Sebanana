@@ -98,6 +98,7 @@ public class BasicPerson extends Person {
 
     @Override
     public void doAction(final ActionBenodigdheden ab) {
+        ab.getTekstVak().setName(getName());
         if(!isSaai()){
              Timeline timeline = new Timeline();
              int teller = 0;

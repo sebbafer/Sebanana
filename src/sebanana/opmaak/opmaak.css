@@ -10,18 +10,31 @@ root {
     display: block;
 }
 
-.label {
+/*.label {
     -fx-text-fill: #ff0000;
     -fx-padding: 30;
     -fx-translate-x:0;
     -fx-translate-y: 400; 
     -fx-background-color:  #ccccff;
 
-}
+}*/
 
 .ListView{
     /* :/
     -fx-translate-x: 500;
     -fx-translate-y: 500; 
     */
+}
+
+
+
+.hbox {
+    -fx-background-color: #ccccff;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+    -fx-padding: 15;
+    -fx-translate-x:0;
+    -fx-translate-y: 420;
+    -fx-text-fill: #ff0000;
+
 }

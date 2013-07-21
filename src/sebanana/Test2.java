@@ -118,7 +118,7 @@ public class Test2 extends Application {
                     if (!opslag.ergensTegen(nx, ny)){
                         me.verplaats(nx, ny);
                     }
-                    label.setText(null);
+                    label.makeEmpty();
                     
                     
                 }else if(t.getCode() == KeyCode.SPACE){
