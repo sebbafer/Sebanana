@@ -9,7 +9,7 @@ import javafx.scene.shape.Shape;
  *
  * @author Ellen
  */
-public abstract class Person extends Spatiebaar{
+public abstract class Person extends Figureke implements Spatiebaar{
     private double radius;
     private Shape shape;
 
@@ -41,7 +41,7 @@ public abstract class Person extends Spatiebaar{
     }
     
     @Override
-    public boolean hit(double nx, double ny){
+    public boolean erOp(double nx, double ny){
         if(getX()+2*getRadius()>nx && getX()-2*getRadius()<nx
                     &&
                getY()+2*getRadius()>ny && getY()-2*getRadius()<ny 

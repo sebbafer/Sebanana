@@ -1,27 +1,24 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sebanana.util.grafischeObjecten.figureke;
 
 /**
  *
  * @author Ellen
  */
-public abstract class Spatiebaar extends Figureke{
+public  interface Spatiebaar {
     
     /*
      * kijken of men op het ding staat
      */
-    public abstract boolean hit(double nx, double ny);
+    public  boolean erOp(double nx, double ny);
     
      /*
      * kijken of actie heeft
      */
-    public abstract boolean hasAction();
+    public  boolean hasAction();
 
     /*
      * todo: misschien een klasse voor maken
      */
-    public abstract void doAction(ActionBenodigdheden ab);
+    public  void doAction(ActionBenodigdheden ab);
 }

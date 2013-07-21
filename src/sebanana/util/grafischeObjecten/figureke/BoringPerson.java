@@ -4,7 +4,7 @@ package sebanana.util.grafischeObjecten.figureke;
  *
  * @author Ellen
  */
-public class BoringPerson extends Person {
+public class BoringPerson extends Person implements Spatiebaar {
     private String zin;
 
    

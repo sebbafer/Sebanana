@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  *
  * @author Ellen
  */
-public class Item  extends Spatiebaar{
+public class Item  extends Figureke implements Spatiebaar{
    private double height;
    private double width;
    private Shape shape;
@@ -115,7 +115,7 @@ public class Item  extends Spatiebaar{
     /*
      * spatiebaar
      */
-    public boolean hit(double nx, double ny){
+    public boolean erOp(double nx, double ny){
         if(getX()== nx
                     &&
                getY() == ny

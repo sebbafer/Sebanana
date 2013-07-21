@@ -90,7 +90,7 @@ public class ObjectenOpslag {
     
     public Spatiebaar onSpatiebaarDing(double nx, double ny){
         for (Spatiebaar s : spatiesdingen){
-            if(s.hit(nx, ny)){
+            if(s.erOp(nx, ny)){
                 return s;
             }
         }
