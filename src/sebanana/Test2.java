@@ -108,14 +108,14 @@ public class Test2 extends Application {
                     double nx = me.getX() + dX.get(t.getCode());
                     double ny = me.getY() + dY.get(t.getCode());
                     
-                    if (!opslag.hitBuilding(nx, ny)){
+                    if (!opslag.ergensTegen(nx, ny)){
                         me.verplaats(nx, ny);
                     }
                     label.setText(null);
                     
                     
                 }else if(t.getCode() == KeyCode.SPACE){
-                    Spatiebaar b = opslag.onSpatiebaarDing(me.getX(),me.getY());
+                    Spatiebaar b = opslag.opIets(me.getX(),me.getY());
                     
                     if(b != null && b.hasAction()){
                         b.doAction(ab);

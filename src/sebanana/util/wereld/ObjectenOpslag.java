@@ -48,13 +48,16 @@ public class ObjectenOpslag {
             throw new RuntimeException("JAXB:" + ex);
         } 
         
+        /*
+         * tegenloopbaar
+         */
         for(Building b : w.getBuildings()){
            tegenloopbaredingen.add(b);
            children.add(b.getNode());
         }
         
         /*
-         * persons
+         * spatiebaar
          */
         for(BoringPerson b : w.getPersons()){
             spatiesdingen.add(b);
@@ -75,12 +78,15 @@ public class ObjectenOpslag {
     }
 
     public void verwijder(Item item){
+        //verwijderen van beeld
         children.remove(item.getNode());
+        //verwijderen uit spatie lijst
         spatiesdingen.remove(item);
+        //verwijderen uit world
         w.remove((Figureke) item);
     }
     
-    public boolean hitBuilding(double x, double y){
+    public boolean ergensTegen(double x, double y){
         for (Tegenloopbaar b : tegenloopbaredingen){
             if (b.erTegen(x, y)){
                 return true;
@@ -89,7 +95,7 @@ public class ObjectenOpslag {
         return false;
     }
     
-    public Spatiebaar onSpatiebaarDing(double nx, double ny){
+    public Spatiebaar opIets(double nx, double ny){
         for (Spatiebaar s : spatiesdingen){
             if(s.erOp(nx, ny)){
                 return s;
