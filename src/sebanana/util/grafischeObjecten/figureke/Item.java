@@ -2,6 +2,7 @@ package sebanana.util.grafischeObjecten.figureke;
 
 import javafx.scene.Node;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
@@ -48,9 +49,19 @@ public class Item  extends Figureke implements Spatiebaar{
     /*
      * figuur
      */
+    private ImageView iv;
     @Override
     public Node getNode() {
-       return getShape();
+//        if (iv == null){
+//            iv = new ImageView(getImage());
+//            iv.setFitHeight(height);
+//            iv.setFitWidth(width);
+//            iv.setTranslateX(getX());
+//            iv.setTranslateY(getY());
+//        }
+//        return iv;
+        
+        return getShape();
    }
     
     
