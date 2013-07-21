@@ -18,6 +18,7 @@ public abstract class Figureke {
    private double y;
    private String name;
    private Color fill = Color.BLACK;
+   private static  final String imagelocatie = "sebanana/images/";
 
 
    public Figureke(){
@@ -31,6 +32,7 @@ public abstract class Figureke {
     public abstract Shape getShape();
     /*
      * veel ruimer als shape + enkel doel is visueel weergeven
+     * node moet altijd hetzelfde object teruggeven
      */
     public abstract Node getNode();
 
@@ -75,5 +77,11 @@ public abstract class Figureke {
     }
     
     
+    /*
+     * map waar de afbeeldingen opgeslagen zijn
+     */
+    protected String getImageLocation(){
+        return imagelocatie;
+    }
    
 }

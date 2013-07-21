@@ -54,7 +54,7 @@
             <y>170</y>
             <width>5</width>
             <height>5</height>
-            <afbeelding>sebanana/images/spklavertje.png</afbeelding>
+            <afbeelding>spklavertje.png</afbeelding>
             <color>green</color>
         </item>
          <item name="klavertje" id="1">
@@ -62,7 +62,7 @@
             <y>160</y>
             <width>5</width>
             <height>5</height>
-            <afbeelding>sebanana/images/spklavertje.png</afbeelding>
+            <afbeelding>spklavertje.png</afbeelding>
             <color>green</color>
         </item>
         <item name="roos" id="2">
@@ -70,7 +70,7 @@
             <y>300</y>
             <width>5</width>
             <height>5</height>
-            <afbeelding>sebanana/images/rose.png</afbeelding>
+            <afbeelding>rose.png</afbeelding>
             <color>red</color>
         </item>
     </items>

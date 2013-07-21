@@ -37,7 +37,7 @@ public class Item  extends Figureke implements Spatiebaar{
 
     public Image getImage() {
         if(image == null){
-            image = new Image(afbeelding);
+            image = new Image(getImageLocation() + afbeelding);
         }
         return image;
     }
