@@ -17,6 +17,7 @@ import sebanana.util.grafischeObjecten.figureke.ActionBenodigdheden;
 import sebanana.util.grafischeObjecten.figureke.Spatiebaar;
 import sebanana.util.grafischeObjecten.personage.Me;
 import sebanana.util.grafischeObjecten.rugzak.Rugzak;
+import sebanana.util.grafischeObjecten.tekstvak.Tekstvak;
 import sebanana.util.wereld.ObjectenOpslag;
 
 /**
@@ -31,7 +32,7 @@ public class Test2 extends Application {
     
     private static ObjectenOpslag opslag; 
     private static Me me;
-    private static Label label;
+    private static Tekstvak label;
     private static Rugzak rz;
     private static ActionBenodigdheden ab;
     
@@ -60,7 +61,7 @@ public class Test2 extends Application {
         opslag = new ObjectenOpslag(root, null);
         
         
-        label = new Label("Welkom!!!!");
+        label = new Tekstvak();
         root.getChildren().add(label);
         
         

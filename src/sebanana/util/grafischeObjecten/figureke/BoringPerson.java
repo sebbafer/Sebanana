@@ -28,7 +28,7 @@ public class BoringPerson extends Person implements Spatiebaar {
 
     @Override
     public void doAction(ActionBenodigdheden ab) {
-        ab.getLabel().setText(zin);
+        ab.getTekstVak().setText(zin);
     }
 
     @Override

@@ -2,8 +2,8 @@ package sebanana.util.grafischeObjecten.figureke;
 
 
 
-import javafx.scene.control.Label;
 import sebanana.util.grafischeObjecten.rugzak.Rugzak;
+import sebanana.util.grafischeObjecten.tekstvak.Tekstvak;
 import sebanana.util.wereld.ObjectenOpslag;
 
 /**
@@ -11,18 +11,18 @@ import sebanana.util.wereld.ObjectenOpslag;
  * @author Ellen
  */
 public class ActionBenodigdheden {
-    private Label label;
     private ObjectenOpslag opslag;
     private Rugzak rz;
+    private Tekstvak tv;
 
-    public ActionBenodigdheden(Label label, ObjectenOpslag opslag, Rugzak rz) {
-        this.label = label;
+    public ActionBenodigdheden(Tekstvak tv, ObjectenOpslag opslag, Rugzak rz) {
+        this.tv = tv;
         this.opslag = opslag;
         this.rz = rz;
     }
 
-    public Label getLabel() {
-        return label;
+    public Tekstvak getTekstVak() {
+        return tv;
     }
 
     public ObjectenOpslag getObjectenOpslag() {

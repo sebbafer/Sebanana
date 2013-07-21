@@ -90,7 +90,7 @@ public class ContainsPerson extends Person{
                   new EventHandler() {
                          @Override
                           public void handle(Event event) {
-                                ab.getLabel().setText(hello);
+                                ab.getTekstVak().setText(hello);
                          }
                 }),
                 new KeyFrame(Duration.seconds(1),
@@ -98,10 +98,10 @@ public class ContainsPerson extends Person{
                          @Override
                           public void handle(Event event) {
                              if(ab.getRugzak().remove(idItem)){
-                                    ab.getLabel().setText(yes);
+                                    ab.getTekstVak().setText(yes);
                                     klaar=true;
                              }else{
-                                   ab.getLabel().setText(no);
+                                   ab.getTekstVak().setText(no);
                              }
                              
                              
@@ -114,7 +114,7 @@ public class ContainsPerson extends Person{
            
            
         }else{
-            ab.getLabel().setText(zin);
+            ab.getTekstVak().setText(zin);
         }
         
       
