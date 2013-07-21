@@ -47,7 +47,10 @@
             <x>190</x>
             <y>190</y>
             <radius>10</radius>
-            <zin>Ik verveel me :( </zin>
+            <zinnen>
+                <zin>Het is mooi weer.</zin>
+                <zin>Maar ik verveel me :(</zin>
+            </zinnen>
         </boringperson>
     </boringpersons>
     <items>

@@ -20,6 +20,7 @@ public class ActionBenodigdheden {
         this.opslag = opslag;
         this.rz = rz;
     }
+    //opslag kan veranderen => setter?
 /*
  * getters
  */
