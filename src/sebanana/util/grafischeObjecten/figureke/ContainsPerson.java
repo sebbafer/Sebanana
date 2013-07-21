@@ -13,13 +13,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Ellen
  */
 @XmlRootElement(name="containsperson")
-public class ContainsPerson extends Person{
+public class ContainsPerson extends KlaarPersoon{
     private static final String CONTAINS_PERSON = "ContainsPerson";
     private String hello;
     private String yes;
     private String no;
     private int idItem;
-    private boolean klaar; // al met gesproken
     
     @XmlElement (name = "hello")
     public String getHello() {
@@ -48,17 +47,7 @@ public class ContainsPerson extends Person{
         this.no = no;
     }
 
-    public boolean isKlaar(){
-        return klaar;
-    }
-    
-    public void setKlaar(String klaar){
-        this.klaar= Boolean.getBoolean(klaar);
-    }
-    
-    public String getKlaar(){
-        return Boolean.toString(klaar);
-    }
+
     
     @XmlElement (name = "iditem")
     public int getIdItem() {
@@ -89,7 +78,7 @@ public class ContainsPerson extends Person{
                           public void handle(Event event) {
                              if(ab.getRugzak().remove(idItem)){
                                     ab.getTekstVak().setText(yes);
-                                    klaar=true;
+                                    setKlaar(true);
                              }else{
                                    ab.getTekstVak().setText(no);
                              }

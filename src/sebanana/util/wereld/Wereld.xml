@@ -45,6 +45,18 @@
             <klaar>false</klaar>
         </containsperson>
     </containspersons>
+    <receivepersons>
+        <receiveperson>
+            <x>60</x>
+            <y>300</y>
+            <radius>10</radius>           
+            <zinnen>
+                <zin>je hebt al gekregen</zin>
+                <zin>ok</zin>
+                <zin>totziens!</zin>
+            </zinnen>
+        </receiveperson>
+    </receivepersons>
     <boringpersons>
         <boringperson name="Jane">
             <x>190</x>

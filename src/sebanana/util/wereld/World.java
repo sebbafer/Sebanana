@@ -12,6 +12,7 @@ import sebanana.util.grafischeObjecten.figureke.Figureke;
 import sebanana.util.grafischeObjecten.figureke.Item;
 import sebanana.util.grafischeObjecten.figureke.BoringPerson;
 import sebanana.util.grafischeObjecten.figureke.ContainsPerson;
+import sebanana.util.grafischeObjecten.figureke.ReceivePerson;
 
 
 /**
@@ -24,8 +25,12 @@ public class World {
     private List<Building> buildings;
     private List<BoringPerson> boringpersons;
     private List<ContainsPerson> containspersons;
+    private List<ReceivePerson> receivepersons;
     private List<Item> items;
     
+    /*
+     * hashmap om te weten uit welke lijst een figureke moet verwijderd worden
+     */
     private Map<String, List> map;
     
     public World(){
@@ -63,6 +68,16 @@ public class World {
         voegToe(persons);
     }
 
+    @XmlElementWrapper (name = "receivepersons")
+    @XmlElement (name = "receiveperson")
+    public List<ReceivePerson> getReceivePersons() {
+        return receivepersons;
+    }
+
+    public void setReceivePersons(List<ReceivePerson> receiveperson) {
+        this.receivepersons = receiveperson;
+        voegToe(receiveperson);
+    }
     
     @XmlElementWrapper (name = "containspersons")
     @XmlElement (name = "containsperson")
