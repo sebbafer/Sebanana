@@ -9,7 +9,7 @@ import javafx.scene.shape.Shape;
  *
  * @author Ellen
  */
-public class Building extends Figureke{
+public class Building extends Figureke implements Tegenloopbaar{
    private double height;
    private double width;
    private Shape shape;
@@ -51,6 +51,7 @@ public class Building extends Figureke{
         return getShape();
     }
 
+   @Override
     public boolean erTegen(double nx, double ny){
          if (nx <= getX()+getWidth() && nx >= getX() 
                     && ny <= getY()+getHeight() && ny >= getY()){

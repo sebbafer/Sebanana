@@ -15,6 +15,7 @@ import sebanana.util.grafischeObjecten.figureke.Item;
 import sebanana.util.grafischeObjecten.figureke.Spatiebaar;
 import sebanana.util.grafischeObjecten.figureke.BoringPerson;
 import sebanana.util.grafischeObjecten.figureke.ContainsPerson;
+import sebanana.util.grafischeObjecten.figureke.Tegenloopbaar;
 
 /**
  *
@@ -28,7 +29,7 @@ public class ObjectenOpslag {
      */
     private List children;
     
-    private final ObservableList<Building> buildings = FXCollections.observableArrayList();
+    private final ObservableList<Tegenloopbaar> tegenloopbaredingen = FXCollections.observableArrayList();
     private final ObservableList<Spatiebaar> spatiesdingen = FXCollections.observableArrayList();
     
     private World w;
@@ -48,7 +49,7 @@ public class ObjectenOpslag {
         } 
         
         for(Building b : w.getBuildings()){
-           buildings.add(b);
+           tegenloopbaredingen.add(b);
            children.add(b.getNode());
         }
         
@@ -80,7 +81,7 @@ public class ObjectenOpslag {
     }
     
     public boolean hitBuilding(double x, double y){
-        for (Building b : buildings){
+        for (Tegenloopbaar b : tegenloopbaredingen){
             if (b.erTegen(x, y)){
                 return true;
             }
