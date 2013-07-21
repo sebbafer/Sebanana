@@ -8,7 +8,6 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -70,14 +69,18 @@ public class Test2 extends Application {
         
         ab = new ActionBenodigdheden(label, opslag, rz);
         
-        
-        
+        /*
+         * save knop
+         */
         Button save = new Button();
         save.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
                 opslag.doSaveTest();
+                System.out.println("---");
+                rz.doSaveTest();
+                System.out.println("- - -");
             }
         });
         save.setText("Save");
@@ -85,8 +88,9 @@ public class Test2 extends Application {
         save.setTranslateY(20);
         root.getChildren().add(save);
         
-        
-        
+        /*
+         * bewegend figuurtje
+         */
         me = new Me(5.0, 10.0);
         root.getChildren().add(me.getNode());
         
@@ -95,7 +99,9 @@ public class Test2 extends Application {
         root.getStylesheets().add("sebanana/opmaak/opmaak.css");
         
         
-        
+        /*
+         * beweging
+         */
         primaryStage.setScene(new Scene(root));
         // waarom???? :(
         //primaryStage.getScene()

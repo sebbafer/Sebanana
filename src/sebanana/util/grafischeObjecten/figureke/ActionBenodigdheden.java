@@ -20,7 +20,9 @@ public class ActionBenodigdheden {
         this.opslag = opslag;
         this.rz = rz;
     }
-
+/*
+ * getters
+ */
     public Tekstvak getTekstVak() {
         return tv;
     }

@@ -11,8 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import sebanana.util.grafischeObjecten.figureke.Item;
-import sebanana.util.wereld.World;
 
 /**
  *
@@ -56,6 +56,22 @@ public class Rugzak extends HBox{
     
     }
     
+    public void doSaveTest(){
+          try {
+            //schrijven
+            // create JAXB context and instantiate marshaller
+            JAXBContext context = JAXBContext.newInstance(RugzakLezer.class);
+            Marshaller m = context.createMarshaller();
+            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+            // Write to System.out
+            m.marshal(rl, System.out);
+
+
+        } catch (JAXBException ex) {
+            System.err.println(ex);
+        }
+    }
    
     public Node getTabel(){
         return tabel;
@@ -64,6 +80,7 @@ public class Rugzak extends HBox{
     
     public void add(Item i){
         lijst.add(i);
+        rl.getItems().add(i);
     }
     
     public boolean remove(Item i){
