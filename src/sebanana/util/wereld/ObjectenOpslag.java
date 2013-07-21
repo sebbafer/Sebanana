@@ -98,7 +98,7 @@ public class ObjectenOpslag {
         return null;
     }
     
-    public void save(File location){
+    public void doSave(File location){
         try {
             //schrijven
             // create JAXB context and instantiate marshaller
@@ -117,7 +117,7 @@ public class ObjectenOpslag {
         }
     }
     
-     public void saveTest(){
+     public void doSaveTest(){
         try {
             //schrijven
             // create JAXB context and instantiate marshaller
