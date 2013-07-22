@@ -47,9 +47,12 @@ public class Me {
         shape.setFill(Color.YELLOW);
         this.x = shape.getTranslateX();
         this.y = shape.getTranslateY();
+        //standaardPlaats
+        verplaats(getOFFSET(), getOFFSET());
+
     }
     
-    public void verplaats(double x, double y){
+    public final void verplaats(double x, double y){
         getNode().setTranslateX(x);
         this.x=x;
         getNode().setTranslateY(y);

@@ -33,8 +33,6 @@ public class Test2 extends Application {
     private static Rugzak rz;
     private static ActionBenodigdheden ab;
     
-
-    
     private final Group root = new Group();
     private static TekstvakModel tvmodel;
     private PersonageInfoBox pib;
@@ -83,7 +81,6 @@ public class Test2 extends Application {
          * bewegend figuurtje
          */
         me = new Me(5.0, 10.0);
-        me.verplaats(Me.getOFFSET(), Me.getOFFSET());
         root.getChildren().add(me.getNode());
         
         
