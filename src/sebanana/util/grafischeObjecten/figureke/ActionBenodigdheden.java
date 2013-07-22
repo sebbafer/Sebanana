@@ -3,7 +3,7 @@ package sebanana.util.grafischeObjecten.figureke;
 
 
 import sebanana.util.grafischeObjecten.rugzak.Rugzak;
-import sebanana.util.grafischeObjecten.tekstvak.Tekstvak;
+import sebanana.util.grafischeObjecten.tekstvak.TekstvakModel;
 import sebanana.util.wereld.ObjectenOpslag;
 
 /**
@@ -13,9 +13,9 @@ import sebanana.util.wereld.ObjectenOpslag;
 public class ActionBenodigdheden {
     private ObjectenOpslag opslag;
     private Rugzak rz;
-    private Tekstvak tv;
+    private TekstvakModel tv;
 
-    public ActionBenodigdheden(Tekstvak tv, ObjectenOpslag opslag, Rugzak rz) {
+    public ActionBenodigdheden(TekstvakModel tv, ObjectenOpslag opslag, Rugzak rz) {
         this.tv = tv;
         this.opslag = opslag;
         this.rz = rz;
@@ -24,7 +24,7 @@ public class ActionBenodigdheden {
 /*
  * getters
  */
-    public Tekstvak getTekstVak() {
+    public TekstvakModel getTekstVakModel() {
         return tv;
     }
 

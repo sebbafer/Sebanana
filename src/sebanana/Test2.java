@@ -17,6 +17,7 @@ import sebanana.util.grafischeObjecten.figureke.Spatiebaar;
 import sebanana.util.grafischeObjecten.personage.Me;
 import sebanana.util.grafischeObjecten.rugzak.Rugzak;
 import sebanana.util.grafischeObjecten.tekstvak.Tekstvak;
+import sebanana.util.grafischeObjecten.tekstvak.TekstvakModel;
 import sebanana.util.wereld.ObjectenOpslag;
 
 /**
@@ -53,6 +54,8 @@ public class Test2 extends Application {
     }
     
     private final Group root = new Group();
+    private static TekstvakModel tvmodel;
+    
     @Override
     public void start(final Stage primaryStage) throws JAXBException {
         primaryStage.setTitle("Test2");
@@ -61,13 +64,15 @@ public class Test2 extends Application {
         
         
         label = new Tekstvak();
+        tvmodel = label.getModel();
+        tvmodel.setText("Welcome!!!");
         root.getChildren().add(label);
         
         
         rz = new Rugzak();
         root.getChildren().add(rz);
         
-        ab = new ActionBenodigdheden(label, opslag, rz);
+        ab = new ActionBenodigdheden(tvmodel, opslag, rz);
         
         /*
          * save knop
@@ -118,7 +123,7 @@ public class Test2 extends Application {
                     if (!opslag.ergensTegen(nx, ny)){
                         me.verplaats(nx, ny);
                     }
-                    label.makeEmpty();
+                    tvmodel.makeEmpty();
                     
                     
                 }else if(t.getCode() == KeyCode.SPACE){

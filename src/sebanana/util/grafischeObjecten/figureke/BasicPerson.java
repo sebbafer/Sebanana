@@ -1,5 +1,6 @@
 package sebanana.util.grafischeObjecten.figureke;
 
+import java.util.Objects;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.Event;
@@ -98,7 +99,7 @@ public class BasicPerson extends Person {
 
     @Override
     public void doAction(final ActionBenodigdheden ab) {
-        ab.getTekstVak().setName(getName());
+        ab.getTekstVakModel().setTalkingPerson(this);
         if(!isSaai()){
              Timeline timeline = new Timeline();
              int teller = 0;
@@ -108,7 +109,7 @@ public class BasicPerson extends Person {
                               new EventHandler() {
                                      @Override
                                       public void handle(Event event) {
-                                         ab.getTekstVak().setText(getHello());
+                                         ab.getTekstVakModel().setText(getHello());
                                      }
                             })  );
              teller++;
@@ -120,12 +121,12 @@ public class BasicPerson extends Person {
                                      @Override
                                       public void handle(Event event) {
                                          if(ab.getRugzak().remove(getIdItem())){
-                                                ab.getTekstVak().setText(getYes());
+                                                ab.getTekstVakModel().setText(getYes());
                                                 idItem=0;
                                                 gekregen = true;
                                                 setSaai(true);
                                          }else{
-                                               ab.getTekstVak().setText(getNo());
+                                               ab.getTekstVakModel().setText(getNo());
                                                gekregen = false;
                                          }
                                      }
@@ -143,7 +144,7 @@ public class BasicPerson extends Person {
                                      @Override
                                       public void handle(Event event) {
                                          if(gekregen){
-                                           ab.getTekstVak().setText(getGeef());
+                                           ab.getTekstVakModel().setText(getGeef());
                                            ab.getRugzak().add(item);
                                            item=null;
                                            setSaai(true);
@@ -161,6 +162,22 @@ public class BasicPerson extends Person {
             playSaaieTijdlijn(ab);
         }
     }
+/*
+ *  als namen gelijk zijn is het dezelfde
+ *  TODO: msch wat uitgebrijder maken
+ */
+    @Override
+    public boolean equals(Object o) {
+        if( o.getClass() != this.getClass()) {return false;}
+        BasicPerson cast = (BasicPerson) o;
+        return cast.getName().equals(this.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.getName());
+        return hash;
+    }
     
 }
-

@@ -100,7 +100,7 @@ public abstract class Person extends Figureke implements Spatiebaar{
     
     public void playSaaieTijdlijn(final ActionBenodigdheden ab){
        if(zinnen.size() == 1){
-         ab.getTekstVak().setText(zinnen.get(0));
+         ab.getTekstVakModel().setText(zinnen.get(0));
           
        }else{
             if(timeline == null){
@@ -111,7 +111,7 @@ public abstract class Person extends Figureke implements Spatiebaar{
                               new EventHandler() {
                                      @Override
                                       public void handle(Event event) {
-                                            ab.getTekstVak().setText(zinnen.get(hulp));
+                                            ab.getTekstVakModel().setText(zinnen.get(hulp));
                                      }
                             }));
                         }
