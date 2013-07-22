@@ -153,14 +153,6 @@ public class ObjectenOpslag extends Group{
         return me;
     }
 
-
-     
-     
-     
-     
-     
-     
-     
      
      
      /*

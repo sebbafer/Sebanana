@@ -28,18 +28,34 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
     private  Rugzak rz;
     private  ActionBenodigdheden ab;
     private  PersonageInfoBox pib;
-    private final TekstvakModel tvmodel;
+    private  TekstvakModel tvmodel;
 
 
     public StandaardBeeld() {
+        /*
+         * speelveld
+         */
         opslag = new ObjectenOpslag(null);
         me = opslag.getMe();
+        /*
+         * tekstgedeelte
+         */
         label = new Tekstvak();
         tvmodel = label.getModel();
         tvmodel.setText("Welcome!!!");
+        /*
+         * rugzak
+         */
         rz = new Rugzak();
-        ab = new ActionBenodigdheden(label.getModel(), opslag, rz);
+        /*
+         * personage info
+         */
         pib = new PersonageInfoBox();
+        /*
+         * verzameling
+         */
+        ab = new ActionBenodigdheden(label.getModel(), opslag, rz);
+
         
         this.getChildren().addAll(
                 opslag, label, rz, pib
@@ -99,7 +115,12 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public ActionBenodigdheden getActionBenodigdheden() {
+        return ab;
+    }
 
+
+    
     
     
     

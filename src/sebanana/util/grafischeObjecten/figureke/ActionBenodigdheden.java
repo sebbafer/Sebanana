@@ -36,5 +36,10 @@ public class ActionBenodigdheden {
         return rz;
     }
     
+    public void doSaveTest(){
+        rz.doSaveTest();
+        opslag.doSaveTest();
+    }
+    
     
 }

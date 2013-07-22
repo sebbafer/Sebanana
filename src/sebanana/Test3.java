@@ -7,19 +7,9 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javax.xml.bind.JAXBException;
 import sebanana.util.grafischeObjecten.figureke.ActionBenodigdheden;
-import sebanana.util.grafischeObjecten.figureke.Spatiebaar;
-import sebanana.util.grafischeObjecten.figureke.Tegenloopbaar;
-import sebanana.util.grafischeObjecten.personage.Me;
-import sebanana.util.grafischeObjecten.personage.PersonageInfoBox;
-import sebanana.util.grafischeObjecten.rugzak.Rugzak;
-import sebanana.util.grafischeObjecten.tekstvak.Tekstvak;
-import sebanana.util.grafischeObjecten.tekstvak.TekstvakModel;
-import sebanana.util.wereld.ObjectenOpslag;
 import sebanana.views.StandaardBeeld;
 
 /**
@@ -28,6 +18,7 @@ import sebanana.views.StandaardBeeld;
  */
 public class Test3 extends Application {
     private Group root;
+    private ActionBenodigdheden ab;
     
     @Override
     public void start(final Stage primaryStage) throws JAXBException {
@@ -41,19 +32,17 @@ public class Test3 extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-//                opslag.doSaveTest();
-                System.out.println("---");
-//                rz.doSaveTest();
-//                System.out.println("- - -");
+                ab.doSaveTest();
             }
         });
         save.setText("Save");
         save.setTranslateX(400);
         save.setTranslateY(20);
-        root.getChildren().add(save);
         
-
-        root.getChildren().add(new StandaardBeeld());
+        
+        StandaardBeeld sb = new StandaardBeeld();
+        ab=sb.getActionBenodigdheden();
+        root.getChildren().add(sb);
         
         
         root.getStylesheets().add("sebanana/opmaak/opmaak.css");
@@ -62,7 +51,8 @@ public class Test3 extends Application {
         primaryStage.setScene(new Scene(root));
 
         
-        
+          root.getChildren().add(save);
+      
         primaryStage.setWidth(800);
         primaryStage.setHeight(600);
         primaryStage.show();
