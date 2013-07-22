@@ -67,7 +67,6 @@ public class ObjectenOpslag {
             spatiesdingen.add(b);
             children.add(b.getNode());
         }
-        
 
     }
 

@@ -2,7 +2,7 @@
 
 
 
-<wereld>
+<wereld id="1">
     <buildings>
         <building name="gebouw1">
             <x>20</x>

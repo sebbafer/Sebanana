@@ -4,6 +4,7 @@ package sebanana.util.wereld;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -22,6 +23,7 @@ public class World {
     private List<BasicPerson> bp;
     private List<Building> buildings;
     private List<Item> items;
+    private int id;
     
     /*
      * hashmap om te weten uit welke lijst een figureke moet verwijderd worden
@@ -76,6 +78,13 @@ public class World {
         voegToe(bp);
     }
     
-    
+    @XmlAttribute(name = "id")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
 }
