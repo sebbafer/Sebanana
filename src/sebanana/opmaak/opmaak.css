@@ -45,3 +45,13 @@ root {
     -fx-translate-y: 400
     
 }
+
+.rugzak {
+    -fx-translate-x: 600;
+    -fx-translate-y: 5;    
+    -fx-max-height: 300;
+    -fx-max-width: 80;
+    -fx-spacing: 20;
+    -fx-alignment: center ;
+    
+}

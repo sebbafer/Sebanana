@@ -39,14 +39,15 @@ public class Rugzak extends VBox{
         k.setMinWidth(75);
         tabel.getColumns().add(k);
 
-        this.setMaxWidth(80);
-        this.setTranslateX(600);
-        this.setTranslateY(5);
-        this.setMaxHeight(300);
-        this.setAlignment(Pos.CENTER);
+        
+        this.getStyleClass().add("rugzak");
+        
+     //   this.setMaxWidth(80);
+     //   this.setMaxHeight(300);
+    //    this.setAlignment(Pos.CENTER);
 
         this.getChildren().add(tabel);
-        this.setSpacing(20);
+    //    this.setSpacing(20);
         
         
     
