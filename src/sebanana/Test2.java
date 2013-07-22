@@ -62,8 +62,8 @@ public class Test2 extends Application {
     public void start(final Stage primaryStage) throws JAXBException {
         primaryStage.setTitle("Test2");
         
-        opslag = new ObjectenOpslag(root, null);
-        
+        opslag = new ObjectenOpslag(null);
+        root.getChildren().add(opslag);
         
         label = new Tekstvak();
         tvmodel = label.getModel();

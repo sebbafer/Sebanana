@@ -2,7 +2,6 @@ package sebanana.util.wereld;
 
 
 import java.io.File;
-import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Group;
@@ -20,22 +19,14 @@ import sebanana.util.grafischeObjecten.figureke.Tegenloopbaar;
  *
  * @author Ellen
  */
-public class ObjectenOpslag {
+public class ObjectenOpslag extends Group{
   
-    /*
-     * 
-     * beste manier om verandering weer te geven??
-     */
-    private List children;
-    
     private final ObservableList<Tegenloopbaar> tegenloopbaredingen = FXCollections.observableArrayList();
     private final ObservableList<Spatiebaar> spatiesdingen = FXCollections.observableArrayList();
     
     private World w;
 
-    public ObjectenOpslag(Group root, File file) {
-            this.children=root.getChildren();
-            
+    public ObjectenOpslag( File file) {            
         try {
             JAXBContext jc = JAXBContext.newInstance(World.class);
             if(file == null){
@@ -52,7 +43,7 @@ public class ObjectenOpslag {
          */
         for(Building b : w.getBuildings()){
            tegenloopbaredingen.add(b);
-           children.add(b.getNode());
+           this.getChildren().add(b.getNode());
         }
         
         /*
@@ -60,19 +51,19 @@ public class ObjectenOpslag {
          */
          for(BasicPerson b : w.getBasicPersons()){
             spatiesdingen.add(b);
-            children.add(b.getNode());
+            this.getChildren().add(b.getNode());
         }
         
         for(Item b : w.getItems()){
             spatiesdingen.add(b);
-            children.add(b.getNode());
+            this.getChildren().add(b.getNode());
         }
 
     }
 
     public void verwijder(Item item){
         //verwijderen van beeld
-        children.remove(item.getNode());
+        this.getChildren().remove(item.getNode());
         //verwijderen uit spatie lijst
         spatiesdingen.remove(item);
         //verwijderen uit world
