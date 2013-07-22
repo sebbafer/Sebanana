@@ -1,6 +1,5 @@
 package sebanana;
 
-import java.util.HashMap;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
@@ -28,32 +27,13 @@ import sebanana.util.wereld.ObjectenOpslag;
  */
 public class Test2 extends Application {
     
-   private static final HashMap<KeyCode,Double> dX;
-    private static final HashMap<KeyCode,Double> dY;
-    private static final double OFFSET = 10;
-    
     private static ObjectenOpslag opslag; 
     private static Me me;
     private static Tekstvak label;
     private static Rugzak rz;
     private static ActionBenodigdheden ab;
     
-    static {
-        dX = new HashMap<>();
-        dY = new HashMap<>();
-        
-        dX.put(KeyCode.RIGHT, OFFSET);
-        dY.put(KeyCode.RIGHT, 0.0);
-        
-        dX.put(KeyCode.LEFT, -OFFSET);
-        dY.put(KeyCode.LEFT, 0.0);
-        
-        dX.put(KeyCode.UP, 0.0);
-        dY.put(KeyCode.UP, -OFFSET);
-        
-        dX.put(KeyCode.DOWN, 0.0);
-        dY.put(KeyCode.DOWN, OFFSET);
-    }
+
     
     private final Group root = new Group();
     private static TekstvakModel tvmodel;
@@ -103,7 +83,7 @@ public class Test2 extends Application {
          * bewegend figuurtje
          */
         me = new Me(5.0, 10.0);
-        me.verplaats(OFFSET, OFFSET);
+        me.verplaats(Me.getOFFSET(), Me.getOFFSET());
         root.getChildren().add(me.getNode());
         
         
@@ -122,10 +102,9 @@ public class Test2 extends Application {
             @Override
             public void handle(KeyEvent t) {
                 
-                
-                if(dX.get(t.getCode()) != null){
-                    double nx = me.getX() + dX.get(t.getCode());
-                    double ny = me.getY() + dY.get(t.getCode());
+                if(Me.isVerplaatsing(t)){
+                    double nx = me.getX() + Me.getNX(t);
+                    double ny = me.getY() + Me.getNY(t);
                     Tegenloopbaar op = opslag.ergensTegen(nx, ny);
                     if (op == null){
                         me.verplaats(nx, ny);
