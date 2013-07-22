@@ -12,6 +12,7 @@ import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
+import sebanana.models.Modelverzameling;
 
 /**
  *
@@ -98,28 +99,44 @@ public abstract class Person extends Figureke implements Spatiebaar{
        this.saai=saai;
     }
     
-    public void playSaaieTijdlijn(final ActionBenodigdheden ab){
-       if(zinnen.size() == 1){
-         ab.getTekstVakModel().setText(zinnen.get(0));
-          
-       }else{
-            if(timeline == null){
-                    timeline = new Timeline();
-                    for(int i=0; i < zinnen.size(); i++){
-                      final int hulp = i;
-                      timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(hulp),
-                              new EventHandler() {
-                                     @Override
-                                      public void handle(Event event) {
-                                            ab.getTekstVakModel().setText(zinnen.get(hulp));
-                                     }
-                            }));
-                        }
-                 }
+    public Timeline  getSaaieTijdlijn(final Modelverzameling ab){
+       if(timeline == null){
+            if(zinnen.size() == 1){
+             timeline = new Timeline();
+                          timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(0),
+                                  new EventHandler() {
+                                         @Override
+                                          public void handle(Event event) {
+                                                ab.getTekstVakModel().setText(zinnen.get(0));
+                                         }
+                                }));
+                           timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),
+                                  new EventHandler() {
+                                         @Override
+                                          public void handle(Event event) {
 
-                timeline.playFromStart();
+                                         }
+                                }));
+               }else{
+                            timeline = new Timeline();
+                            for(int i=0; i < zinnen.size(); i++){
+                              final int hulp = i;
+                              timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(hulp),
+                                      new EventHandler() {
+                                             @Override
+                                              public void handle(Event event) {
+                                                    ab.getTekstVakModel().setText(zinnen.get(hulp));
+                                             }
+                                    }));
+                                }
+                         }
+
        }
+       
+       return timeline;
+               
     }
+    
     
 
     

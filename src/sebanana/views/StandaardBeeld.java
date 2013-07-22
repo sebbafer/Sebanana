@@ -6,7 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
-import sebanana.util.grafischeObjecten.figureke.ActionBenodigdheden;
+import sebanana.models.Modelverzameling;
 import sebanana.util.grafischeObjecten.figureke.Spatiebaar;
 import sebanana.util.grafischeObjecten.figureke.Tegenloopbaar;
 import sebanana.util.grafischeObjecten.personage.Me;
@@ -26,27 +26,29 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
     private  Me me;
     private  Tekstvak label;
     private  Rugzak rz;
-    private  ActionBenodigdheden ab;
     private  PersonageInfoBox pib;
     private  TekstvakModel tvmodel;
+    private  Modelverzameling mv;
 
 
     public StandaardBeeld() {
+        mv = new Modelverzameling();
+        mv.addListener(this);
         /*
          * speelveld
          */
-        opslag = new ObjectenOpslag(null);
+        opslag = mv.getObjectenOpslag();
         me = opslag.getMe();
         /*
          * tekstgedeelte
          */
-        label = new Tekstvak();
+        label = new Tekstvak(mv.getTekstVakModel());
         tvmodel = label.getModel();
         tvmodel.setText("Welcome!!!");
         /*
          * rugzak
          */
-        rz = new Rugzak();
+        rz = mv.getRugzak();
         /*
          * personage info
          */
@@ -54,7 +56,6 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
         /*
          * verzameling
          */
-        ab = new ActionBenodigdheden(label.getModel(), opslag, rz);
 
         
         this.getChildren().addAll(
@@ -90,7 +91,7 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
                     Spatiebaar b = opslag.opIets(me.getX(),me.getY());
                     
                     if(b != null && b.hasAction()){
-                        b.doAction(ab);
+                        b.doAction(mv);
                     }
                     
                     
@@ -115,13 +116,8 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public ActionBenodigdheden getActionBenodigdheden() {
-        return ab;
+    public Modelverzameling getModel(){
+        return mv;
     }
-
-
-    
-    
-    
     
 }

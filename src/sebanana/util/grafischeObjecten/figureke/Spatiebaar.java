@@ -1,6 +1,8 @@
 
 package sebanana.util.grafischeObjecten.figureke;
 
+import sebanana.models.Modelverzameling;
+
 /**
  *
  * @author Ellen
@@ -20,5 +22,5 @@ public  interface Spatiebaar {
     /*
      * 
      */
-    public  void doAction(ActionBenodigdheden ab);
+    public  void doAction(Modelverzameling ab);
 }

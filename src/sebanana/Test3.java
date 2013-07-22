@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javax.xml.bind.JAXBException;
-import sebanana.util.grafischeObjecten.figureke.ActionBenodigdheden;
+import sebanana.models.Modelverzameling;
 import sebanana.views.StandaardBeeld;
 
 /**
@@ -18,7 +18,7 @@ import sebanana.views.StandaardBeeld;
  */
 public class Test3 extends Application {
     private Group root;
-    private ActionBenodigdheden ab;
+    private Modelverzameling ab;
     
     @Override
     public void start(final Stage primaryStage) throws JAXBException {
@@ -41,7 +41,7 @@ public class Test3 extends Application {
         
         
         StandaardBeeld sb = new StandaardBeeld();
-        ab=sb.getActionBenodigdheden();
+        ab=sb.getModel();
         root.getChildren().add(sb);
         
         
@@ -51,7 +51,7 @@ public class Test3 extends Application {
         primaryStage.setScene(new Scene(root));
 
         
-          root.getChildren().add(save);
+        root.getChildren().add(save);
       
         primaryStage.setWidth(800);
         primaryStage.setHeight(600);

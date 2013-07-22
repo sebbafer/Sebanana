@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javax.xml.bind.annotation.XmlAttribute;
+import sebanana.models.Modelverzameling;
 
 /**
  *
@@ -144,7 +145,7 @@ public class Item  extends Figureke implements Spatiebaar{
     }
 
     @Override
-    public void doAction(ActionBenodigdheden ab) {
+    public void doAction(Modelverzameling ab) {
         ab.getTekstVakModel().setText("je vond " + getName());
         /*
          * verplaatsen

@@ -7,6 +7,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.util.Duration;
 import javax.xml.bind.annotation.XmlElement;
+import sebanana.models.Modelverzameling;
 
 /**
  *
@@ -98,7 +99,7 @@ public class BasicPerson extends Person {
     }
 
     @Override
-    public void doAction(final ActionBenodigdheden ab) {
+    public void doAction(final Modelverzameling ab) {
         ab.getTekstVakModel().setTalkingPerson(this);
         if(!isSaai()){
              Timeline timeline = new Timeline();
@@ -159,7 +160,7 @@ public class BasicPerson extends Person {
            timeline.playFromStart();
 
         }else{
-            playSaaieTijdlijn(ab);
+            getSaaieTijdlijn(ab).playFromStart();
         }
     }
 /*

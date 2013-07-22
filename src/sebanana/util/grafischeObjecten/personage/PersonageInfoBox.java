@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import sebanana.models.PlayerModel;
 
 /**
  *
@@ -27,16 +28,33 @@ public class PersonageInfoBox extends GridPane implements Initializable, Invalid
     @FXML
     private Label happinesslabel;
     @FXML
+    private Label points;
+    @FXML
     private ProgressBar happinessbar;
     @FXML
     private ImageView personimage;
+    private PlayerModel pm;
 
     public PersonageInfoBox() {
             laadFXML();
             this.getStyleClass().add("personageinfobox");
-    
+            pm = new PlayerModel();
+            pm.addListener(this);
     }
 
+    public PersonageInfoBox(PlayerModel pm) {
+            laadFXML();
+            this.getStyleClass().add("personageinfobox");
+            this.pm=pm;
+            pm.addListener(this);
+    }
+    
+
+    public PlayerModel getPlayerModel() {
+        return pm;
+    }
+
+    
     
     
     
@@ -60,11 +78,15 @@ public class PersonageInfoBox extends GridPane implements Initializable, Invalid
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        
     }
 
     @Override
     public void invalidated(Observable observable) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        happinessbar.setProgress(pm.getHappiness());
+        energybar.setProgress(pm.getEnergy());
+        name.setText(pm.getName());
+        points.setText(""+pm.getPoints());
+    
     }
 }
