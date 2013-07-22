@@ -17,9 +17,13 @@ import sebanana.util.wereld.ObjectenOpslag;
  * @author Ellen
  */
 public class Modelverzameling implements Observable{
+    //alle items personen en bebouwen etc
     private ObjectenOpslag opslag;
+    //al verzamelde items
     private Rugzak rz;
+    //tekst die op label moet staan
     private TekstvakModel tv;
+    //informatie over speler, energy, punten etc
     private PlayerModel pm;
 
     public Modelverzameling() {

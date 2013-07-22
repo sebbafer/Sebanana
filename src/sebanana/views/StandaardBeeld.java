@@ -13,7 +13,6 @@ import sebanana.util.grafischeObjecten.personage.Me;
 import sebanana.util.grafischeObjecten.personage.PersonageInfoBox;
 import sebanana.util.grafischeObjecten.rugzak.Rugzak;
 import sebanana.util.grafischeObjecten.tekstvak.Tekstvak;
-import sebanana.util.grafischeObjecten.tekstvak.TekstvakModel;
 import sebanana.util.wereld.ObjectenOpslag;
 
 /**
@@ -27,7 +26,6 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
     private  Tekstvak label;
     private  Rugzak rz;
     private  PersonageInfoBox pib;
-    private  TekstvakModel tvmodel;
     private  Modelverzameling mv;
 
 
@@ -43,8 +41,7 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
          * tekstgedeelte
          */
         label = new Tekstvak(mv.getTekstVakModel());
-        tvmodel = label.getModel();
-        tvmodel.setText("Welcome!!!");
+        label.getModel().setText("Welcome!!!");
         /*
          * rugzak
          */
@@ -52,10 +49,8 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
         /*
          * personage info
          */
-        pib = new PersonageInfoBox();
-        /*
-         * verzameling
-         */
+        pib = new PersonageInfoBox(mv.getPlayerModel());
+        mv.getPlayerModel().setName("Sebanana");
 
         
         this.getChildren().addAll(
@@ -84,7 +79,7 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
                     }else if(op.hasAction()){
                         op.doAction();
                     }
-                    tvmodel.makeEmpty();
+                    mv.getTekstVakModel().makeEmpty();
                     
                     
                 }else if(t.getCode() == KeyCode.SPACE){
@@ -108,12 +103,12 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
 
     @Override
     public void invalidated(Observable observable) {
-        /*
+        /*TODO
          * het enige dat veranderd is de objectenopslag moet ergens bijgehouden worden => actiebenodigdheden is een soort bundel van model (rz en opslag zijn model en view ineen want da lijkt meest efficient denk ik)
          * opslag = model.getobjectenopslag();
          */
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.opslag=mv.getObjectenOpslag();
+     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Modelverzameling getModel(){

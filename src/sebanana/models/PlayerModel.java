@@ -73,7 +73,7 @@ public class PlayerModel implements Observable{
     }
 
     public void setName(String name) {
-        if(!this.name.equals(name)){
+        if( (this.name == null && name != null)  ||  !this.name.equals(name)  ){
         this.name = name;
         fireInvalidationEvent();
         }
