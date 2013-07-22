@@ -168,7 +168,7 @@ public class BasicPerson extends Person {
  */
     @Override
     public boolean equals(Object o) {
-        if( o.getClass() != this.getClass()) {return false;}
+        if( o == null ||o.getClass() != this.getClass()) {return false;}
         BasicPerson cast = (BasicPerson) o;
         return cast.getName().equals(this.getName());
     }
