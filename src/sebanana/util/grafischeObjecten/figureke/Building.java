@@ -66,5 +66,15 @@ public class Building extends Figureke implements Tegenloopbaar{
         return BUILDING;
     }
 
+    @Override
+    public boolean hasAction() {
+        return false;
+    }
+
+    @Override
+    public void doAction() {
+        throw new UnsupportedOperationException("heeft geen acite");
+    }
+
 
 }

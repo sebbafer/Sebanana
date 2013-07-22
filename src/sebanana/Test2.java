@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javax.xml.bind.JAXBException;
 import sebanana.util.grafischeObjecten.figureke.ActionBenodigdheden;
 import sebanana.util.grafischeObjecten.figureke.Spatiebaar;
+import sebanana.util.grafischeObjecten.figureke.Tegenloopbaar;
 import sebanana.util.grafischeObjecten.personage.Me;
 import sebanana.util.grafischeObjecten.personage.PersonageInfoBox;
 import sebanana.util.grafischeObjecten.rugzak.Rugzak;
@@ -102,6 +103,7 @@ public class Test2 extends Application {
          * bewegend figuurtje
          */
         me = new Me(5.0, 10.0);
+        me.verplaats(OFFSET, OFFSET);
         root.getChildren().add(me.getNode());
         
         
@@ -124,9 +126,11 @@ public class Test2 extends Application {
                 if(dX.get(t.getCode()) != null){
                     double nx = me.getX() + dX.get(t.getCode());
                     double ny = me.getY() + dY.get(t.getCode());
-                    
-                    if (!opslag.ergensTegen(nx, ny)){
+                    Tegenloopbaar op = opslag.ergensTegen(nx, ny);
+                    if (op == null){
                         me.verplaats(nx, ny);
+                    }else if(op.hasAction()){
+                        op.doAction();
                     }
                     tvmodel.makeEmpty();
                     

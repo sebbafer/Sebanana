@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import sebanana.util.grafischeObjecten.figureke.ActionBenodigdheden;
 import sebanana.util.grafischeObjecten.figureke.BasicPerson;
 import sebanana.util.grafischeObjecten.figureke.Building;
 import sebanana.util.grafischeObjecten.figureke.Figureke;
@@ -20,13 +21,17 @@ import sebanana.util.grafischeObjecten.figureke.Tegenloopbaar;
  * @author Ellen
  */
 public class ObjectenOpslag extends Group{
-  
+    int height = 400;
+    int width = 550;
     private final ObservableList<Tegenloopbaar> tegenloopbaredingen = FXCollections.observableArrayList();
     private final ObservableList<Spatiebaar> spatiesdingen = FXCollections.observableArrayList();
     
     private World w;
 
     public ObjectenOpslag( File file) {            
+        /*
+         * lezen
+         */
         try {
             JAXBContext jc = JAXBContext.newInstance(World.class);
             if(file == null){
@@ -45,6 +50,8 @@ public class ObjectenOpslag extends Group{
            tegenloopbaredingen.add(b);
            this.getChildren().add(b.getNode());
         }
+        
+        tegenloopbaredingen.add(new randen());
         
         /*
          * spatiebaar
@@ -70,15 +77,23 @@ public class ObjectenOpslag extends Group{
         w.remove((Figureke) item);
     }
     
-    public boolean ergensTegen(double x, double y){
+    /*
+     * geeft terug waar tegen loopt
+     * als niks geeft null terug
+     */
+    public Tegenloopbaar ergensTegen(double x, double y){
         for (Tegenloopbaar b : tegenloopbaredingen){
             if (b.erTegen(x, y)){
-                return true;
+                return b;
             }
         }
-        return false;
+        return null;
     }
     
+    /*
+     * geeft terug waar het opstaat
+     * als op niks geeft null terug
+     */
     public Spatiebaar opIets(double nx, double ny){
         for (Spatiebaar s : spatiesdingen){
             if(s.erOp(nx, ny)){
@@ -124,4 +139,44 @@ public class ObjectenOpslag extends Group{
         }
     }
 
+     private class randen implements Tegenloopbaar{
+
+        @Override
+        public boolean erTegen(double nx, double ny) {
+            return nx <= 0 || ny <= 0 ||ny >= getHeight() || nx >= getWidth();
+            
+        }
+
+        @Override
+        public boolean hasAction() {
+            return false;
+        }
+
+        @Override
+        public void doAction() {
+            /* TODO:
+             * code voor het verplaatsen van alles 
+             */
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+         
+     }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+     
+     
 }

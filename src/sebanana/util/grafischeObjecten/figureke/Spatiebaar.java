@@ -18,7 +18,7 @@ public  interface Spatiebaar {
     public  boolean hasAction();
 
     /*
-     * todo: misschien een klasse voor maken
+     * 
      */
     public  void doAction(ActionBenodigdheden ab);
 }
