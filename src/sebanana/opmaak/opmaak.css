@@ -49,9 +49,31 @@ root {
 .rugzak {
     -fx-translate-x: 600;
     -fx-translate-y: 5;    
+    /*waarom werkt max heigth en width niet :(
+    */
     -fx-max-height: 300;
-    -fx-max-width: 80;
+    -fx-max-width: 80; 
+    -fx-arc-height:  20;
     -fx-spacing: 20;
     -fx-alignment: center ;
-    
+    -fx-size: 30;
+
 }
+
+/* verberg bovenkant
+.column-header-background { visibility: hidden; -fx-padding: -1em; }
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

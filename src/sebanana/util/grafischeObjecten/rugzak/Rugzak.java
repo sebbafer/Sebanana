@@ -36,19 +36,13 @@ public class Rugzak extends VBox{
         ItemImageCellFactory cf = new ItemImageCellFactory();
         k.setCellFactory(cf);
         k.setEditable(false);
-        k.setMinWidth(75);
+       // k.setMinWidth(75);
         tabel.getColumns().add(k);
 
         
         this.getStyleClass().add("rugzak");
         
-     //   this.setMaxWidth(80);
-     //   this.setMaxHeight(300);
-    //    this.setAlignment(Pos.CENTER);
-
         this.getChildren().add(tabel);
-    //    this.setSpacing(20);
-        
         
     
     }
