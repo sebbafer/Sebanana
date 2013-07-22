@@ -5,6 +5,15 @@
 <wereld id="1">
     <xme>10</xme>
     <yme>10</yme>
+    <teleports>
+        <teleport>
+            <x>350</x>
+            <y>270</y>
+            <width>10</width>
+            <height>10</height>
+            <location>test.xml</location>
+        </teleport>
+    </teleports>
     <buildings>
         <building name="gebouw1">
             <x>20</x>

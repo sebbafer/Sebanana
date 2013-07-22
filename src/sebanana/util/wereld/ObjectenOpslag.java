@@ -8,12 +8,14 @@ import javafx.scene.Group;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import sebanana.models.Modelverzameling;
 import sebanana.util.grafischeObjecten.figureke.BasicPerson;
 import sebanana.util.grafischeObjecten.figureke.Building;
 import sebanana.util.grafischeObjecten.figureke.Figureke;
 import sebanana.util.grafischeObjecten.figureke.Item;
 import sebanana.util.grafischeObjecten.figureke.Spatiebaar;
 import sebanana.util.grafischeObjecten.figureke.Tegenloopbaar;
+import sebanana.util.grafischeObjecten.figureke.Teleport;
 import sebanana.util.grafischeObjecten.personage.Me;
 
 /**
@@ -48,6 +50,11 @@ public class ObjectenOpslag extends Group{
          * tegenloopbaar
          */
         for(Building b : w.getBuildings()){
+           tegenloopbaredingen.add(b);
+           this.getChildren().add(b.getNode());
+        }
+        
+         for(Teleport b : w.getTeleports()){
            tegenloopbaredingen.add(b);
            this.getChildren().add(b.getNode());
         }
@@ -172,7 +179,7 @@ public class ObjectenOpslag extends Group{
         }
 
         @Override
-        public void doAction() {
+        public void doAction(Modelverzameling mv) {
             /* TODO:
              * code voor het verplaatsen van alles 
              */

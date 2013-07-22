@@ -4,6 +4,7 @@ import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import sebanana.models.Modelverzameling;
 
 /**
  *
@@ -72,7 +73,7 @@ public class Building extends Figureke implements Tegenloopbaar{
     }
 
     @Override
-    public void doAction() {
+    public void doAction(Modelverzameling mv) {
         throw new UnsupportedOperationException("heeft geen acite");
     }
 

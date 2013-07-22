@@ -12,6 +12,7 @@ import sebanana.util.grafischeObjecten.figureke.BasicPerson;
 import sebanana.util.grafischeObjecten.figureke.Building;
 import sebanana.util.grafischeObjecten.figureke.Figureke;
 import sebanana.util.grafischeObjecten.figureke.Item;
+import sebanana.util.grafischeObjecten.figureke.Teleport;
 
 
 /**
@@ -23,6 +24,8 @@ public class World {
     private List<BasicPerson> bp;
     private List<Building> buildings;
     private List<Item> items;
+    private List<Teleport> teleports;
+
     private int id;
     private double xme;
     private double yme;
@@ -89,7 +92,18 @@ public class World {
         this.id = id;
     }
     
+    @XmlElementWrapper (name = "teleports")
+    @XmlElement (name = "teleport")
+    public List<Teleport> getTeleports() {
+        return teleports;
+    }
 
+    public void setTeleports(List<Teleport> teleports) {
+        this.teleports = teleports;
+        voegToe(teleports);
+    }
+    
+    
 
     public double getXme() {
         return xme;

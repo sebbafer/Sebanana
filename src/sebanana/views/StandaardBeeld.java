@@ -76,9 +76,10 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
                     Tegenloopbaar op = opslag.ergensTegen(nx, ny);
                     if (op == null){
                         me.verplaats(nx, ny);
-                    }else if(op.hasAction()){
-                        op.doAction();
-                    }
+                    }else{ 
+                        if(op.hasAction()){
+                        op.doAction(mv);
+                    }}
                     mv.getTekstVakModel().makeEmpty();
                     
                     

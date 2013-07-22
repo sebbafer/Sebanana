@@ -1,5 +1,7 @@
 package sebanana.util.grafischeObjecten.figureke;
 
+import sebanana.models.Modelverzameling;
+
 /**
  *
  * @author Ellen
@@ -16,5 +18,5 @@ public interface Tegenloopbaar {
     /*
      * wat het doet
      */
-    public  void doAction();
+    public  void doAction(Modelverzameling mv);
 }
