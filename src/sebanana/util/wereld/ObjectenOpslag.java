@@ -8,13 +8,13 @@ import javafx.scene.Group;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import sebanana.util.grafischeObjecten.figureke.ActionBenodigdheden;
 import sebanana.util.grafischeObjecten.figureke.BasicPerson;
 import sebanana.util.grafischeObjecten.figureke.Building;
 import sebanana.util.grafischeObjecten.figureke.Figureke;
 import sebanana.util.grafischeObjecten.figureke.Item;
 import sebanana.util.grafischeObjecten.figureke.Spatiebaar;
 import sebanana.util.grafischeObjecten.figureke.Tegenloopbaar;
+import sebanana.util.grafischeObjecten.personage.Me;
 
 /**
  *
@@ -27,6 +27,7 @@ public class ObjectenOpslag extends Group{
     private final ObservableList<Spatiebaar> spatiesdingen = FXCollections.observableArrayList();
     
     private World w;
+    private final Me me;
 
     public ObjectenOpslag( File file) {            
         /*
@@ -42,7 +43,7 @@ public class ObjectenOpslag extends Group{
         } catch (JAXBException ex) {
             throw new RuntimeException("JAXB:" + ex);
         } 
-        
+
         /*
          * tegenloopbaar
          */
@@ -65,7 +66,12 @@ public class ObjectenOpslag extends Group{
             spatiesdingen.add(b);
             this.getChildren().add(b.getNode());
         }
-
+       /*
+        * me blokje
+        */
+        me = new Me(5.0, 10.0);
+        me.verplaats(w.getXme(), w.getYme());
+        this.getChildren().add(me.getNode());
     }
 
     public void verwijder(Item item){
@@ -104,6 +110,8 @@ public class ObjectenOpslag extends Group{
     }
     
     public void doSave(File location){
+        w.setXme(me.getX());
+        w.setYme(me.getY());
         try {
             //schrijven
             // create JAXB context and instantiate marshaller
@@ -123,6 +131,8 @@ public class ObjectenOpslag extends Group{
     }
     
      public void doSaveTest(){
+        w.setXme(me.getX());
+        w.setYme(me.getY());
         try {
             //schrijven
             // create JAXB context and instantiate marshaller
@@ -139,6 +149,23 @@ public class ObjectenOpslag extends Group{
         }
     }
 
+    public Me getMe() {
+        return me;
+    }
+
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     /*
+      * de randen
+      */
      private class randen implements Tegenloopbaar{
 
         @Override

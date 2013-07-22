@@ -3,6 +3,8 @@
 
 
 <wereld id="1">
+    <xme>10</xme>
+    <yme>10</yme>
     <buildings>
         <building name="gebouw1">
             <x>20</x>

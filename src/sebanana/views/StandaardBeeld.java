@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sebanana.views;
 
-import java.util.HashMap;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -24,7 +20,7 @@ import sebanana.util.wereld.ObjectenOpslag;
  *
  * @author Ellen
  */
-public class StandaardBeeld extends Pane{
+public class StandaardBeeld extends Pane implements InvalidationListener {
     
     private  ObjectenOpslag opslag; 
     private  Me me;
@@ -37,16 +33,16 @@ public class StandaardBeeld extends Pane{
 
     public StandaardBeeld() {
         opslag = new ObjectenOpslag(null);
+        me = opslag.getMe();
         label = new Tekstvak();
         tvmodel = label.getModel();
         tvmodel.setText("Welcome!!!");
         rz = new Rugzak();
         ab = new ActionBenodigdheden(label.getModel(), opslag, rz);
         pib = new PersonageInfoBox();
-        me = new Me(5.0, 10.0);
         
         this.getChildren().addAll(
-                opslag, label, rz, pib, me.getNode()
+                opslag, label, rz, pib
                 );
         
         
@@ -55,6 +51,7 @@ public class StandaardBeeld extends Pane{
          /*
          * beweging
          */
+        //WAAROMMMMMMMMMMMMMMMMMM :'(
                 rz.getTabel()
                         .setOnKeyPressed(new EventHandler<KeyEvent>(){
 
@@ -91,6 +88,18 @@ public class StandaardBeeld extends Pane{
         
         
     }
+
+    @Override
+    public void invalidated(Observable observable) {
+        /*
+         * het enige dat veranderd is de objectenopslag moet ergens bijgehouden worden => actiebenodigdheden is een soort bundel van model (rz en opslag zijn model en view ineen want da lijkt meest efficient denk ik)
+         * opslag = model.getobjectenopslag();
+         */
+        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
     
     
     

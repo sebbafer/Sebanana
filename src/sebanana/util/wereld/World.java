@@ -24,6 +24,8 @@ public class World {
     private List<Building> buildings;
     private List<Item> items;
     private int id;
+    private double xme;
+    private double yme;
     
     /*
      * hashmap om te weten uit welke lijst een figureke moet verwijderd worden
@@ -86,5 +88,25 @@ public class World {
     public void setId(int id) {
         this.id = id;
     }
+    
+
+
+    public double getXme() {
+        return xme;
+    }
+
+    public void setXme(double xme) {
+        this.xme = xme;
+    }
+
+    public double getYme() {
+        return yme;
+    }
+
+    public void setYme(double yme) {
+        this.yme = yme;
+    }
+    
+           
     
 }
