@@ -28,13 +28,20 @@ root {
 
 
 
-.hbox {
+.tekstvak {
     -fx-background-color: #ccccff;
     -fx-padding: 15;
     -fx-spacing: 10;
-    -fx-padding: 15;
     -fx-translate-x:0;
     -fx-translate-y: 420;
     -fx-text-fill: #ff0000;
 
+}
+
+.personageinfobox {
+    -fx-background-color: #ffcccc;
+    -fx-padding: 15;
+    -fx-translate-x: 400;
+    -fx-translate-y: 400
+    
 }

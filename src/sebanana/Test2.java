@@ -15,6 +15,7 @@ import javax.xml.bind.JAXBException;
 import sebanana.util.grafischeObjecten.figureke.ActionBenodigdheden;
 import sebanana.util.grafischeObjecten.figureke.Spatiebaar;
 import sebanana.util.grafischeObjecten.personage.Me;
+import sebanana.util.grafischeObjecten.personage.PersonageInfoBox;
 import sebanana.util.grafischeObjecten.rugzak.Rugzak;
 import sebanana.util.grafischeObjecten.tekstvak.Tekstvak;
 import sebanana.util.grafischeObjecten.tekstvak.TekstvakModel;
@@ -55,6 +56,7 @@ public class Test2 extends Application {
     
     private final Group root = new Group();
     private static TekstvakModel tvmodel;
+    private PersonageInfoBox pib;
     
     @Override
     public void start(final Stage primaryStage) throws JAXBException {
@@ -73,6 +75,9 @@ public class Test2 extends Application {
         root.getChildren().add(rz);
         
         ab = new ActionBenodigdheden(tvmodel, opslag, rz);
+        
+        pib = new PersonageInfoBox();
+        root.getChildren().add(pib);
         
         /*
          * save knop

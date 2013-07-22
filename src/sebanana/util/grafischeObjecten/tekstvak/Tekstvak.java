@@ -31,7 +31,7 @@ public class Tekstvak extends HBox implements Initializable, InvalidationListene
     public Tekstvak(TekstvakModel model){
         laadFXML();
         
-        this.getStyleClass().add("hbox");
+        this.getStyleClass().add("tekstvak");
         
         this.model=model;
         this.model.addListener(this);
@@ -40,7 +40,7 @@ public class Tekstvak extends HBox implements Initializable, InvalidationListene
     public Tekstvak(){
         laadFXML();
         
-        this.getStyleClass().add("hbox");
+        this.getStyleClass().add("tekstvak");
         
         this.model=new TekstvakModel();
         this.model.addListener(this);

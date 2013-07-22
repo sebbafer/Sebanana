@@ -25,16 +25,7 @@ public class Rugzak extends VBox{
     private RugzakLezer rl;
 
     public Rugzak() {
-        try {
-            JAXBContext jc = JAXBContext.newInstance(RugzakLezer.class);
-            rl = (RugzakLezer) jc.createUnmarshaller().unmarshal(RugzakLezer.class.getResource("Rugzak.xml"));
-        } catch (JAXBException ex) {
-            throw new RuntimeException("JAXB:" + ex);
-        } 
-        
-        for( Item i : rl.getItems()){
-            lijst.add(i);
-        }
+        leesmxl(); 
         
         tabel = new TableView<>(lijst);
 
@@ -49,8 +40,9 @@ public class Rugzak extends VBox{
         tabel.getColumns().add(k);
 
         this.setMaxWidth(80);
-        this.setTranslateX(500);
-        this.setTranslateY(50);
+        this.setTranslateX(600);
+        this.setTranslateY(5);
+        this.setMaxHeight(300);
         this.setAlignment(Pos.CENTER);
 
         this.getChildren().add(tabel);
@@ -123,5 +115,18 @@ public class Rugzak extends VBox{
             teller++;
         }
         return false;
+    }
+
+    private void leesmxl() throws RuntimeException {
+        try {
+            JAXBContext jc = JAXBContext.newInstance(RugzakLezer.class);
+            rl = (RugzakLezer) jc.createUnmarshaller().unmarshal(RugzakLezer.class.getResource("Rugzak.xml"));
+        } catch (JAXBException ex) {
+            throw new RuntimeException("JAXB:" + ex);
+        } 
+        
+        for( Item i : rl.getItems()){
+            lijst.add(i);
+        }
     }
 }
