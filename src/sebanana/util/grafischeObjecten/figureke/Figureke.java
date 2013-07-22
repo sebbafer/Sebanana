@@ -20,6 +20,9 @@ public abstract class Figureke {
    private String name;
    private Color fill = Color.BLACK;
    private static final String IMAGELOCATION = "sebanana/images/";
+   private int points;
+   private int happiness;
+   private int energy;
 
 
    public Figureke(){
@@ -84,5 +87,35 @@ public abstract class Figureke {
     protected String getImageLocation(){
         return IMAGELOCATION;
     }
+
+    
+    /*
+     * personage eigenschappen
+     */
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public int getHappiness() {
+        return happiness;
+    }
+
+    public void setHappiness(int happiness) {
+        this.happiness = happiness;
+    }
+
+    public int getEnergy() {
+        return energy;
+    }
+
+    public void setEnergy(int energy) {
+        this.energy = energy;
+    }
    
+    
+    
 }

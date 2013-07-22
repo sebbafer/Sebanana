@@ -124,17 +124,19 @@ public class BasicPerson extends Person {
                                          if(ab.getRugzak().remove(getIdItem())){
                                                 ab.getTekstVakModel().setText(getYes());
                                                 idItem=0;
-                                                gekregen = true;
+                                                deelEenOk(ab);
                                                 setSaai(true);
                                          }else{
                                                ab.getTekstVakModel().setText(getNo());
                                                gekregen = false;
                                          }
                                      }
+
+
                             })  );
                 teller++;
              }else{
-                 gekregen=true;
+                 deelEenOk(ab);
              }
              
              //geven
@@ -162,6 +164,13 @@ public class BasicPerson extends Person {
         }else{
             getSaaieTijdlijn(ab).playFromStart();
         }
+    }
+    
+     private void deelEenOk(Modelverzameling ab) {
+        gekregen = true;
+        ab.getPlayerModel().addPoints(getPoints());
+        ab.getPlayerModel().addEnergy(getEnergy());
+        ab.getPlayerModel().addHappiness(getHappiness());
     }
 /*
  *  als namen gelijk zijn is het dezelfde

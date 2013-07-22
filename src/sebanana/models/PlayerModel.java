@@ -12,8 +12,8 @@ import javafx.beans.Observable;
 public class PlayerModel implements Observable{
      // gegevens over de speler
      // waarde tussen 0 en 100
-    private int happiness;
-    private int energy;
+    private int happiness=50;
+    private int energy=50;
      // behaald aantal punten in het spel
     private int points;
      // naam van de speler
@@ -21,17 +21,20 @@ public class PlayerModel implements Observable{
 
     
     
-    private boolean juisteWaarde(int waarde){
-        return waarde >=0 && waarde <=100;
+    private boolean juisteWaarde(int waarde, int huidige){
+//        if(!(huidige+waarde >=0 && huidige+waarde <=100)){
+//            throw new IllegalArgumentException("waarde " + waarde + " te hoog");
+//        }
+        return waarde != 0 ;
     }
     
     public int getHappiness() {
         return happiness;
     }
 
-    public void setHappiness(int happiness) {
-        if(happiness != this.happiness && juisteWaarde(happiness)){
-        this.happiness = happiness;
+    public void addHappiness(int happiness) {
+        if(juisteWaarde(happiness, this.happiness)){
+        this.happiness += happiness;
         fireInvalidationEvent();
         }
     }
@@ -40,9 +43,9 @@ public class PlayerModel implements Observable{
         return energy;
     }
 
-    public void setEnergy(int energy) {
-        if(this.energy != energy && juisteWaarde(energy)){
-        this.energy = energy;
+    public void addEnergy(int energy) {
+        if(juisteWaarde(energy,this.energy)){
+        this.energy += energy;
         fireInvalidationEvent();
         }
     }

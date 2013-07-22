@@ -59,6 +59,9 @@
                 <zin>ok</zin>
                 <zin>totziens!</zin>
             </zinnen>
+            <points>500</points>
+            <happiness>10</happiness>
+            <energy>10</energy>
         </person>
         <person name="Jane">
             <x>190</x>
@@ -85,6 +88,8 @@
                 <zin>ok</zin>
                 <zin>totziens!</zin>
             </zinnen>
+            <happiness>15</happiness>
+            <energy>-25</energy>
         </person>
          <person name="jantje">
             <x>20</x>
@@ -98,6 +103,8 @@
                 <zin>Ik ben heel blij met mijn klavertje!</zin>
                 <zin>dankje!!!</zin>
             </zinnen>
+            <points>-25</points>
+           <happiness>-30</happiness>
         </person>
         <person name="peuter">
             <x>60</x>
@@ -110,6 +117,7 @@
             <zinnen>
                 <zin>joepie!</zin>
             </zinnen>
+            <points>500</points>
         </person>
     </basicpersons>
     <items>
@@ -132,10 +140,12 @@
         <item name="roos" id="22">
             <x>100</x>
             <y>300</y>
+            <points>50</points>
             <width>5</width>
             <height>5</height>
             <afbeelding>rose.png</afbeelding>
             <color>red</color>
+            <energy>-25</energy>
         </item>
     </items>
 </wereld>

@@ -146,6 +146,7 @@ public class Item  extends Figureke implements Spatiebaar{
 
     @Override
     public void doAction(Modelverzameling ab) {
+        ab.getPlayerModel().addPoints(getPoints());
         ab.getTekstVakModel().setText("je vond " + getName());
         /*
          * verplaatsen

@@ -83,10 +83,14 @@ public class PersonageInfoBox extends GridPane implements Initializable, Invalid
 
     @Override
     public void invalidated(Observable observable) {
-        happinessbar.setProgress(pm.getHappiness());
-        energybar.setProgress(pm.getEnergy());
+        happinessbar.setProgress(getWaarde(pm.getHappiness()));
+        energybar.setProgress(getWaarde(pm.getEnergy()) );
         name.setText(pm.getName());
         points.setText(""+pm.getPoints());
     
+    }
+
+    private double getWaarde(int waarde) {
+        return (double) waarde/100;
     }
 }
