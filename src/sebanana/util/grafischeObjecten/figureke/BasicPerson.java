@@ -126,6 +126,7 @@ public class BasicPerson extends Person {
                                                 idItem=0;
                                                 deelEenOk(ab);
                                                 setSaai(true);
+                                                doPersonageBeinvloeding(ab);
                                          }else{
                                                ab.getTekstVakModel().setZin(getNo());
                                                gekregen = false;
@@ -151,6 +152,7 @@ public class BasicPerson extends Person {
                                            ab.getRugzak().add(item);
                                            item=null;
                                            setSaai(true);
+                                           doPersonageBeinvloeding(ab);
                                          }
                                      }
                             })  );
@@ -168,7 +170,6 @@ public class BasicPerson extends Person {
     
      private void deelEenOk(Modelverzameling ab) {
         gekregen = true;
-        doPersonageBeinvloeding(ab);
     }
 /*
  *  als namen gelijk zijn is het dezelfde

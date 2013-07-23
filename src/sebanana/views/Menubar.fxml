@@ -6,13 +6,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root type="MenuBar" fx:id="menubar"  xmlns:fx="http://javafx.com/fxml">
+<fx:root type="MenuBar" fx:id="menubar" xmlns:fx="http://javafx.com/fxml">
   <menus>
     <Menu mnemonicParsing="false" text="Bestand">
       <items>
-        <MenuItem mnemonicParsing="false" text="Save" />
+        <MenuItem mnemonicParsing="false" onAction="#doSave" text="Save" fx:id="save" />
         <SeparatorMenuItem mnemonicParsing="false" />
-        <MenuItem mnemonicParsing="false" text="Exit" />
+        <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" fx:id="exit" />
       </items>
     </Menu>
     <Menu mnemonicParsing="false" text="Bewerken" />
@@ -20,10 +20,10 @@
       <items>
         <Menu mnemonicParsing="false" text="Cheats">
           <items>
-            <MenuItem mnemonicParsing="false" text="Extra energy" />
+            <MenuItem mnemonicParsing="false" text="Extra energy" fx:id="cheat1" />
           </items>
         </Menu>
-        <MenuItem mnemonicParsing="false" text="Over" />
+        <MenuItem mnemonicParsing="false" onAction="#showAboutWindow" text="Over" fx:id="over" />
       </items>
     </Menu>
   </menus>

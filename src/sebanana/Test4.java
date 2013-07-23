@@ -27,29 +27,12 @@ public class Test4 extends Application {
     public void start(final Stage primaryStage) throws JAXBException {
         primaryStage.setTitle("Test3");
         root=new BorderPane();
-        /*
-         * save knop
-         */
-        Button save = new Button();
-        save.setOnAction(new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent event) {
-                ab.doSaveTest();
-            }
-        });
-        save.setText("Save");
-        save.setTranslateX(400);
-        save.setTranslateY(20);
-        
-        root.setTop(new MyMenubar());
-                //getChildren().add(new MyMenubar());
-        
         StandaardBeeld sb = new StandaardBeeld();
         ab=sb.getModel();
         new PlayerLuisteraar(ab);
-        //root.getChildren().add(sb);
         root.setCenter(sb);
+        root.setTop(new MyMenubar(ab));
         
         
         root.getStylesheets().add("sebanana/opmaak/opmaak.css");
@@ -58,7 +41,6 @@ public class Test4 extends Application {
         primaryStage.setScene(new Scene(root));
 
         
-        root.getChildren().add(save);
       
         primaryStage.setWidth(800);
         primaryStage.setHeight(600);

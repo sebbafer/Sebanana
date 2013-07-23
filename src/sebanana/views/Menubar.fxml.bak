@@ -6,26 +6,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane xmlns:fx="http://javafx.com/fxml">
-  <MenuBar>
-    <menus>
-      <Menu mnemonicParsing="false" text="Bestand">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Save" />
-          <MenuItem mnemonicParsing="false" text="Exit" />
-        </items>
-      </Menu>
-      <Menu mnemonicParsing="false" text="Bewerken" />
-      <Menu mnemonicParsing="false" text="Hulp">
-        <items>
-          <Menu mnemonicParsing="false" text="Cheats">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Extra energy" />
-            </items>
-          </Menu>
-          <MenuItem mnemonicParsing="false" text="Over" />
-        </items>
-      </Menu>
-    </menus>
-  </MenuBar>
-</Pane>
+<fx:root type="MenuBar" fx:id="menubar" xmlns:fx="http://javafx.com/fxml">
+  <menus>
+    <Menu mnemonicParsing="false" text="Bestand">
+      <items>
+        <MenuItem mnemonicParsing="false" onAction="#doSave" text="Save" fx:id="save" />
+        <SeparatorMenuItem mnemonicParsing="false" />
+        <MenuItem mnemonicParsing="false" text="Exit" fx:id="exit" />
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Bewerken" />
+    <Menu mnemonicParsing="false" text="Hulp">
+      <items>
+        <Menu mnemonicParsing="false" text="Cheats">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Extra energy" fx:id="cheat1" />
+          </items>
+        </Menu>
+        <MenuItem mnemonicParsing="false" onAction="#showAboutWindow" text="Over" fx:id="over" />
+      </items>
+    </Menu>
+  </menus>
+</fx:root>
