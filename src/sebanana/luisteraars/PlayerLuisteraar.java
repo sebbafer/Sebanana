@@ -31,14 +31,14 @@ public class PlayerLuisteraar implements InvalidationListener{
             mv.getPlayerModel().setDood(true);
             return;
         }
-        if(pm.getEnergy()<25){
-            mv.getTekstVakModel().setText("Weinig energy");
-            return;
-        }
-        if(pm.getHappiness()<25){
-            mv.getTekstVakModel().setText("Ongelukkig");
-            return;
-        }
+//        if(pm.getEnergy()<25){
+//            mv.getTekstVakModel().setText("Weinig energy");
+//            return;
+//        }
+//        if(pm.getHappiness()<25){
+//            mv.getTekstVakModel().setText("Ongelukkig");
+//            return;
+//        }
         
     }
     
