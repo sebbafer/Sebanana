@@ -31,18 +31,16 @@ public class ObjectenOpslag extends Group{
     private World w;
     private final Me me;
 
-    public ObjectenOpslag( File file, String string) {            
+    public ObjectenOpslag(String locatie) {            
         /*
          * lezen
          */
         try {
             JAXBContext jc = JAXBContext.newInstance(World.class);
-            if(file == null && string == null){
+            if(locatie == null){
             w = (World) jc.createUnmarshaller().unmarshal(ObjectenOpslag.class.getResource("Wereld.xml"));
-            }else if( file != null){
-            w = (World) jc.createUnmarshaller().unmarshal(file);
             }else{
-            w = (World) jc.createUnmarshaller().unmarshal(ObjectenOpslag.class.getResource(string));
+            w = (World) jc.createUnmarshaller().unmarshal(ObjectenOpslag.class.getResource(locatie));
             }
         } catch (JAXBException ex) {
             throw new RuntimeException("JAXB:" + ex);

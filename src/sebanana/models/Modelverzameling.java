@@ -5,7 +5,9 @@
 package sebanana.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import sebanana.util.grafischeObjecten.rugzak.Rugzak;
@@ -18,17 +20,21 @@ import sebanana.util.wereld.ObjectenOpslag;
  */
 public class Modelverzameling implements Observable{
     //alle items personen en bebouwen etc
-    private ObjectenOpslag opslag;
+    private String opslag;
     //al verzamelde items
     private Rugzak rz;
     //tekst die op label moet staan
     private TekstvakModel tv;
     //informatie over speler, energy, punten etc
     private PlayerModel pm;
+    
+    private Map<String, ObjectenOpslag> map;
 
     public Modelverzameling() {
         this.tv = new TekstvakModel();
-        this.opslag = new ObjectenOpslag(null,null);
+        map = new HashMap<>();
+        opslag = "Wereld.xml";
+        map.put(opslag,new ObjectenOpslag(null));
         this.rz = new Rugzak();
         this.pm = new PlayerModel();
     }
@@ -40,7 +46,7 @@ public class Modelverzameling implements Observable{
     }
 
     public ObjectenOpslag getObjectenOpslag() {
-        return opslag;
+        return map.get(opslag);
     }
 
     public Rugzak getRugzak() {
@@ -51,16 +57,30 @@ public class Modelverzameling implements Observable{
         return pm;
     }
 
-    public void setObjectenOpslag(ObjectenOpslag opslag){
-        if(this.opslag != opslag){
-            this.opslag=opslag;
-            fireInvalidationEvent();
+    public void setObjectenOpslag(String locatie){
+        // if(this.opslag != opslag){
+        //  this.opslag=new ObjectenOpslag( locatie);
+        //  fireInvalidationEvent();
+        //}
+        //ok netbeans zokant ook :p
+        if(locatie == null ? this.opslag != null : !locatie.equals(this.opslag)){
+            ObjectenOpslag get = map.get(locatie);
+            if(get == null){
+                map.put(locatie, new ObjectenOpslag(locatie));
+                opslag = locatie;
+                fireInvalidationEvent();
+            }else{
+                this.opslag=locatie;
+                fireInvalidationEvent();
+            }
         }
     }
     
     public void doSaveTest(){
         rz.doSaveTest();
-        opslag.doSaveTest();
+        for(ObjectenOpslag o: map.values()){
+            o.doSaveTest();
+        }
         pm.doSaveTest();
     }
     

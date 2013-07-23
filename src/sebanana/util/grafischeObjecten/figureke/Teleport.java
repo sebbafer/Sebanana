@@ -6,7 +6,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import sebanana.models.Modelverzameling;
 import sebanana.util.grafischeObjecten.personage.Me;
-import sebanana.util.wereld.ObjectenOpslag;
 
 /**
  *
@@ -86,9 +85,8 @@ public class Teleport extends Figureke implements Tegenloopbaar{
 
     @Override
     public void doAction(Modelverzameling mv) {
-        System.out.println("teleport naar " + getLocation());
-        ObjectenOpslag opslag = new ObjectenOpslag(null, getLocation());
-        mv.setObjectenOpslag(opslag);
+        System.out.println("teleport");
+        mv.setObjectenOpslag(getLocation());
     }
     
 }
