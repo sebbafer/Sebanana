@@ -19,6 +19,7 @@ public class TekstvakModel  implements Observable{
     private List<Node> legelijst = new ArrayList<>();
     private Person talking;
     private Timeline t;
+    private String zin;
 
     public String getName() {
             return name;
@@ -66,6 +67,7 @@ public class TekstvakModel  implements Observable{
         if(!isLeeg()){
             text=null;
             name=null;
+            zin=null;
             list=legelijst;
             talking=null;
             if(t != null){
@@ -86,6 +88,18 @@ public class TekstvakModel  implements Observable{
         this.t=t;
         t.playFromStart();
     }
+
+    public String getZin() {
+        return zin;
+    }
+
+    public void setZin(String zin) {
+        if(!zin.equals(this.zin)){
+        this.zin = zin;
+        fireInvalidationEvent();
+        }
+    }
+    
     
     
 /*

@@ -110,7 +110,7 @@ public class BasicPerson extends Person {
                               new EventHandler() {
                                      @Override
                                       public void handle(Event event) {
-                                         ab.getTekstVakModel().setText(getHello());
+                                         ab.getTekstVakModel().setZin(getHello());
                                      }
                             })  );
              teller++;
@@ -122,12 +122,12 @@ public class BasicPerson extends Person {
                                      @Override
                                       public void handle(Event event) {
                                          if(ab.getRugzak().remove(getIdItem())){
-                                                ab.getTekstVakModel().setText(getYes());
+                                                ab.getTekstVakModel().setZin(getYes());
                                                 idItem=0;
                                                 deelEenOk(ab);
                                                 setSaai(true);
                                          }else{
-                                               ab.getTekstVakModel().setText(getNo());
+                                               ab.getTekstVakModel().setZin(getNo());
                                                gekregen = false;
                                          }
                                      }
@@ -147,7 +147,7 @@ public class BasicPerson extends Person {
                                      @Override
                                       public void handle(Event event) {
                                          if(gekregen){
-                                           ab.getTekstVakModel().setText(getGeef());
+                                           ab.getTekstVakModel().setZin(getGeef());
                                            ab.getRugzak().add(item);
                                            item=null;
                                            setSaai(true);

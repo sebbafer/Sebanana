@@ -20,6 +20,7 @@ import javafx.scene.layout.VBox;
  */
 public class Tekstvak extends HBox implements Initializable, InvalidationListener{
     @FXML private Label label;
+    @FXML private Label zin;
     @FXML private Label name;
     @FXML private VBox textbox;
     //rechterbox keuzeboxxe ofzo toevoegen misschien ofzo
@@ -62,6 +63,8 @@ public class Tekstvak extends HBox implements Initializable, InvalidationListene
         setText(model.getText());
         setName(model.getName());
         setList(model.getList());
+        setZin(model.getZin());
+        
     }
         
         
@@ -75,6 +78,10 @@ public class Tekstvak extends HBox implements Initializable, InvalidationListene
     /*
      * setters
      */
+    private void setZin(String text){
+        zin.setText(text);
+    }
+    
     private void setText(String text){
         label.setText(text);
     }

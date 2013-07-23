@@ -32,12 +32,10 @@ public class PlayerLuisteraar implements InvalidationListener{
             return;
         }
         if(pm.getEnergy()<25){
-            mv.getTekstVakModel().makeEmpty();
             mv.getTekstVakModel().setText("Weinig energy");
             return;
         }
         if(pm.getHappiness()<25){
-            mv.getTekstVakModel().makeEmpty();
             mv.getTekstVakModel().setText("Ongelukkig");
             return;
         }

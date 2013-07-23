@@ -9,16 +9,18 @@
 <?import javafx.scene.layout.*?>
 <?scenebuilder-stylesheet ../../../opmaak/opmaak.css?>
 
-<fx:root type="HBox" fx:id="hbox" alignment="CENTER_LEFT" fillHeight="true" prefHeight="128.0" prefWidth="367.0" spacing="40.0" styleClass="hbox" xmlns:fx="http://javafx.com/fxml">
+<fx:root type="HBox" fx:id="hbox" alignment="CENTER_LEFT" fillHeight="true" prefHeight="128.0" prefWidth="367.0" spacing="10.0" styleClass="hbox" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <VBox id="tekstbox" fx:id="textbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="-1.0" prefWidth="-1.0" spacing="25.0">
+    <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="-1.0" prefWidth="-1.0" spacing="30.0">
       <children>
-        <Label fx:id="name" text="name" textOverrun="CLIP" />
-        <Label fx:id="label" text="dsm mqksd dkf sdklf  dfmkjq iodfjoq" textOverrun="CLIP" />
+        <VBox id="tekstbox" fx:id="textbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="-1.0" prefWidth="-1.0" spacing="25.0">
+          <children>
+            <Label fx:id="name" text="name" textOverrun="CLIP" />
+            <Label id="label" fx:id="zin" text="dsm mqksd dkf sdklf  dfmkjq iodfjoq" textOverrun="CLIP" />
+          </children>
+        </VBox>
+        <Label fx:id="label" text="Label" textFill="RED" />
       </children>
-      <HBox.margin>
-        <Insets />
-      </HBox.margin>
     </VBox>
     <VBox fx:id="otherbox" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="15.0" />
   </children>

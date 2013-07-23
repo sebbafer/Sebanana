@@ -108,7 +108,7 @@ public abstract class Person extends Figureke implements Spatiebaar{
                                   new EventHandler() {
                                          @Override
                                           public void handle(Event event) {
-                                                ab.getTekstVakModel().setText(zinnen.get(0));
+                                                ab.getTekstVakModel().setZin(zinnen.get(0));
                                          }
                                 }));
                     
@@ -121,7 +121,7 @@ public abstract class Person extends Figureke implements Spatiebaar{
                                       new EventHandler() {
                                              @Override
                                               public void handle(Event event) {
-                                                 ab.getTekstVakModel().setText(zinnen.get(hulp));
+                                                 ab.getTekstVakModel().setZin(zinnen.get(hulp));
                                              }
                                     }));
                                 }

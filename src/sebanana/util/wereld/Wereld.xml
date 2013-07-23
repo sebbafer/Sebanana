@@ -61,9 +61,7 @@
                 <color>red</color>
             </item>
             <zinnen>
-                <zin>je hebt al iets gekregen</zin>
-                <zin>ok</zin>
-                <zin>totziens!</zin>
+                <zin>bedankt voor klaverjte</zin>
             </zinnen>
             <points>500</points>
             <happiness>10</happiness>
@@ -114,7 +112,7 @@
                 <zin>totziens!</zin>
             </zinnen>
             <happiness>15</happiness>
-            <energy>-25</energy>
+            <energy>-5</energy>
         </person>
          <person name="jantje">
             <x>20</x>
