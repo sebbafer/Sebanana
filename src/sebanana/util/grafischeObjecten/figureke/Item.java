@@ -1,6 +1,10 @@
 package sebanana.util.grafischeObjecten.figureke;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -24,6 +28,7 @@ public class Item  extends Figureke implements Spatiebaar{
    private int id;
    private String color;
    private boolean eetbaar;
+    private ContextMenu contextMenu;
 
    public Item() {
        super.setFill(Color.GREEN);
@@ -185,14 +190,42 @@ public class Item  extends Figureke implements Spatiebaar{
         return true;
     }
     
-    public void Klik(Modelverzameling mv){
-        if(isEetbaar()){
-            doPersonageBeinvloeding(mv);
-            mv.getTekstVakModel().setText("Je at een "+getName());
-            mv.getRugzak().remove(this);
-        }else{
-            mv.getTekstVakModel().setText("dit is een "+getName());
-        }
-    }
 
+    
+
+
+    public ContextMenu getContextMenu(final Modelverzameling mv){
+        if(contextMenu == null){
+            contextMenu = new ContextMenu();
+            MenuItem menuItem1 = new MenuItem("Wat is het");
+            menuItem1.setOnAction(new EventHandler<ActionEvent>() {
+                       @Override
+                       public void handle(ActionEvent event) {
+                           mv.getTekstVakModel().setText("Dit is een "+ getName());
+                       }
+                  }); 
+            contextMenu.getItems().add(menuItem1);
+        
+            
+            if(isEetbaar()){
+                    MenuItem menuItem2 = new MenuItem("Eet");
+                    menuItem2.setOnAction(new EventHandler<ActionEvent>() {
+                           @Override
+                           public void handle(ActionEvent event) {
+                               eet(mv);
+                           }
+                      });   
+                   contextMenu.getItems().add(menuItem2);
+            }
+
+        }
+        return contextMenu;
+        
+    }
+    
+    private void eet(final Modelverzameling mv){
+        doPersonageBeinvloeding(mv);
+        mv.getTekstVakModel().setText("Je at een "+getName());
+        mv.getRugzak().remove(this);        
+    }
 }

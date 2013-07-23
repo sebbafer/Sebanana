@@ -47,23 +47,18 @@ public class ItemImageCellFactory<S, T> implements Callback<TableColumn<S, T>, T
             setText("");
             setGraphic(null);
         } else {
+            //afbeelding
             ImageView iv = new ImageView((Image) item);
             iv.setFitHeight(50);
             iv.setFitWidth(30);
             
             setGraphic(iv);
+                    
             
-            ContextMenu menu = new ContextMenu();
-            MenuItem menuItem = new MenuItem("doIets");
+            //contextmenu
             final Item o = (Item) this.getTableView().getItems().get(this.getIndex());
-            menuItem.setOnAction(new EventHandler<ActionEvent>() {
-                   @Override
-                   public void handle(ActionEvent event) {
-                        o.Klik(mv);
-                   }
-              });
-            menu.getItems().add(menuItem);
-            this.setContextMenu(menu);        
+            this.setContextMenu(o.getContextMenu(mv));     
+            
         }
     }
     }
