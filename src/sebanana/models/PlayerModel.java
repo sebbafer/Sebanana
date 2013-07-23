@@ -6,7 +6,9 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import sebanana.util.grafischeObjecten.personage.PlayerInfoLezer;
+import sebanana.util.grafischeObjecten.rugzak.RugzakLezer;
 
 /**
  *
@@ -123,7 +125,25 @@ public class PlayerModel implements Observable{
     }
     
     public void doSaveTest(){
-        System.out.println("TODO");
+          try {
+              PlayerInfoLezer pi = new PlayerInfoLezer();
+              pi.setName(name);
+              pi.setPoints(points);
+              pi.setEnergy(energy);
+              pi.setHappiness(happiness);
+            //schrijven
+            // create JAXB context and instantiate marshaller
+            JAXBContext context = JAXBContext.newInstance(PlayerInfoLezer.class);
+            Marshaller m = context.createMarshaller();
+            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+            // Write to System.out
+            m.marshal(pi, System.out);
+
+
+        } catch (JAXBException ex) {
+            System.err.println(ex);
+        }    
     }
     
     private void leesmxl() throws RuntimeException {
