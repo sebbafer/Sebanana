@@ -2,7 +2,7 @@
 
 
 
-<wereld id="1">
+<wereld id="1" name="wereld">
     <xme>10</xme>
     <yme>10</yme>
     <teleports>

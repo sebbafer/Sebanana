@@ -168,9 +168,7 @@ public class BasicPerson extends Person {
     
      private void deelEenOk(Modelverzameling ab) {
         gekregen = true;
-        ab.getPlayerModel().addPoints(getPoints());
-        ab.getPlayerModel().addEnergy(getEnergy());
-        ab.getPlayerModel().addHappiness(getHappiness());
+        doPersonageBeinvloeding(ab);
     }
 /*
  *  als namen gelijk zijn is het dezelfde

@@ -4,6 +4,7 @@ import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import javax.xml.bind.annotation.XmlAttribute;
+import sebanana.models.Modelverzameling;
 
 /**
  *
@@ -116,6 +117,14 @@ public abstract class Figureke {
         this.energy = energy;
     }
    
-    
+    protected void doPersonageBeinvloeding(Modelverzameling mv){
+        mv.getPlayerModel().addEnergy(getEnergy());
+        mv.getPlayerModel().addHappiness(getHappiness());
+        mv.getPlayerModel().addPoints(getPoints());
+        setEnergy(0);
+        setHappiness(0);
+        setPoints(0);
+        //mv.getPlayerModel().
+    }
     
 }

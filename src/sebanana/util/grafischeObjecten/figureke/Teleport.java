@@ -85,8 +85,10 @@ public class Teleport extends Figureke implements Tegenloopbaar{
 
     @Override
     public void doAction(Modelverzameling mv) {
-        System.out.println("teleport");
+        doPersonageBeinvloeding(mv);
         mv.setObjectenOpslag(getLocation());
+/// :(
+        mv.getTekstVakModel().setText("je ging naar "+mv.getObjectenOpslag().getName());
     }
     
 }

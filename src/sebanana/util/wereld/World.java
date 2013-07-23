@@ -34,6 +34,7 @@ public class World {
      * hashmap om te weten uit welke lijst een figureke moet verwijderd worden
      */
     private Map<String, List> map;
+    private String name;
     
     public World(){
         map = new HashMap<>();
@@ -90,6 +91,15 @@ public class World {
 
     public void setId(int id) {
         this.id = id;
+    }
+    
+    @XmlAttribute(name = "name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
     @XmlElementWrapper (name = "teleports")

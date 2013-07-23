@@ -108,6 +108,7 @@ public abstract class Person extends Figureke implements Spatiebaar{
                                          @Override
                                           public void handle(Event event) {
                                                 ab.getTekstVakModel().setText(zinnen.get(0));
+                                                doPersonageBeinvloeding(ab);
                                          }
                                 }));
                            timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),
@@ -125,6 +126,9 @@ public abstract class Person extends Figureke implements Spatiebaar{
                                       new EventHandler() {
                                              @Override
                                               public void handle(Event event) {
+                                                 if(hulp==0){
+                                                     doPersonageBeinvloeding(ab);
+                                                 }
                                                     ab.getTekstVakModel().setText(zinnen.get(hulp));
                                              }
                                     }));

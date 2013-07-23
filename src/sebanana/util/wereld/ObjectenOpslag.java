@@ -208,5 +208,8 @@ public class ObjectenOpslag extends Group{
         this.width = width;
     }
      
+    public String getName(){
+        return w.getName();
+    }
      
 }

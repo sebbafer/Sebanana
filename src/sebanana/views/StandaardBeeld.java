@@ -71,6 +71,7 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
             public void handle(KeyEvent t) {
                 
                 if(Me.isVerplaatsing(t)){
+                    mv.getTekstVakModel().makeEmpty();
                     double nx = me.getX() + Me.getNX(t);
                     double ny = me.getY() + Me.getNY(t);
                     Tegenloopbaar op = opslag.ergensTegen(nx, ny);
@@ -80,7 +81,6 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
                         if(op.hasAction()){
                         op.doAction(mv);
                     }}
-                    mv.getTekstVakModel().makeEmpty();
                     
                     
                 }else if(t.getCode() == KeyCode.SPACE){
