@@ -28,7 +28,7 @@ public class ItemImageCellFactory<S, T> implements Callback<TableColumn<S, T>, T
         
         if (empty) {
             setText("");
-        setGraphic(null);
+            setGraphic(null);
         } else {
             ImageView iv = new ImageView((Image) item);
             iv.setFitHeight(50);

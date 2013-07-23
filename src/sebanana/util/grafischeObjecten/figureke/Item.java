@@ -159,5 +159,13 @@ public class Item  extends Figureke implements Spatiebaar{
     public String watIsHet() {
         return ITEM;
     }
+    
+    public boolean hasKlik(){
+        return true;
+    }
+    
+    public void Klik(){
+        System.out.println(getName());
+    }
 
 }
