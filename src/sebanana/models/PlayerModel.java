@@ -7,7 +7,6 @@ import javafx.beans.Observable;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlElement;
 import sebanana.util.grafischeObjecten.personage.PlayerInfoLezer;
 
 /**
@@ -118,15 +117,6 @@ public class PlayerModel implements Observable{
         return !dood;
     }
    
-    @XmlElement (name = "dood")
-    public void setDood(String dood){
-        this.dood = Boolean.parseBoolean(dood);
-    }
-    
-    public String getSaai(){
-        return Boolean.toString(dood);
-    }
-    
     public void setDood(boolean dood){
        this.dood=dood;
     }
@@ -162,6 +152,7 @@ public class PlayerModel implements Observable{
               pi.setPoints(points);
               pi.setEnergy(energy);
               pi.setHappiness(happiness);
+              pi.setDood(dood);
             //schrijven
             // create JAXB context and instantiate marshaller
             JAXBContext context = JAXBContext.newInstance(PlayerInfoLezer.class);
@@ -185,6 +176,7 @@ public class PlayerModel implements Observable{
             points = pi.getPoints();
             happiness = pi.getHappiness();
             energy = pi.getEnergy();
+            dood=pi.isDood();
             fireInvalidationEvent();
         } catch (JAXBException ex) {
             throw new RuntimeException("JAXB:" + ex);

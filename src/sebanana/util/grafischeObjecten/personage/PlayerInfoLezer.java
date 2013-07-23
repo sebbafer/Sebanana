@@ -1,9 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sebanana.util.grafischeObjecten.personage;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -16,6 +14,7 @@ public class PlayerInfoLezer {
     private int happiness;
     private int energy;
     private int points;
+    private boolean dood;
 
     public String getName() {
         return name;
@@ -49,5 +48,20 @@ public class PlayerInfoLezer {
         this.points = points;
     }
     
+    @XmlElement (name = "dood")
+    public void setDood(String dood){
+        this.dood = Boolean.parseBoolean(dood);
+    }
     
+    public String getDood(){
+        return Boolean.toString(dood);
+    }
+    
+    public void setDood(boolean dood){
+       this.dood=dood;
+    }
+    
+    public boolean isDood(){
+        return dood;
+    }
 }

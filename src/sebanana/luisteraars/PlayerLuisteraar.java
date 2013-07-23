@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sebanana.luisteraars;
 
 import javafx.beans.InvalidationListener;
@@ -24,19 +20,24 @@ public class PlayerLuisteraar implements InvalidationListener{
     }
     
     
-    
+    /*
+     * jaja veel ifs
+     */
     @Override
     public void invalidated(Observable observable) {
         if(pm.getHappiness()<=0 || pm.getEnergy()<=0){
+            mv.getTekstVakModel().makeEmpty();
             mv.getTekstVakModel().setText("Game over");
             mv.getPlayerModel().setDood(true);
             return;
         }
         if(pm.getEnergy()<25){
+            mv.getTekstVakModel().makeEmpty();
             mv.getTekstVakModel().setText("Weinig energy");
             return;
         }
         if(pm.getHappiness()<25){
+            mv.getTekstVakModel().makeEmpty();
             mv.getTekstVakModel().setText("Ongelukkig");
             return;
         }
