@@ -73,6 +73,25 @@
             </zinnen>
             <saai>true</saai>
         </person>
+        <person name="Kwebbel">
+            <x>190</x>
+            <y>230</y>
+            <radius>10</radius>
+            <zinnen>
+                <zin>blabla</zin>
+                <zin>blablabla</zin>
+                <zin>blablablabla</zin>
+                <zin>blabla</zin>
+                <zin>bla</zin>
+                <zin>blablabla</zin>
+                <zin>blablablablabla</zin>
+                <zin>blablabla</zin>
+                <zin>blabla</zin>
+                <zin>blablablablabla</zin>
+                <zin>daag</zin>                
+            </zinnen>
+            <saai>true</saai>
+        </person>
         <person name="oma">
             <x>300</x>
             <y>320</y>

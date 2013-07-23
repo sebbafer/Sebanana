@@ -2,6 +2,7 @@ package sebanana.util.grafischeObjecten.tekstvak;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.animation.Timeline;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.scene.Node;
@@ -17,6 +18,7 @@ public class TekstvakModel  implements Observable{
     private List<Node> list = new ArrayList<>();
     private List<Node> legelijst = new ArrayList<>();
     private Person talking;
+    private Timeline t;
 
     public String getName() {
             return name;
@@ -66,6 +68,10 @@ public class TekstvakModel  implements Observable{
             name=null;
             list=legelijst;
             talking=null;
+            if(t != null){
+                t.stop();
+                t=null;
+            }
             fireInvalidationEvent();
         }
     }
@@ -76,7 +82,10 @@ public class TekstvakModel  implements Observable{
                 && name == null && talking == null;
     }
 
-    
+    public void setTimeline(Timeline t){
+        this.t=t;
+        t.playFromStart();
+    }
     
     
 /*

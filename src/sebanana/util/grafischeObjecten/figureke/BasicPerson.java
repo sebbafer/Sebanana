@@ -159,10 +159,10 @@ public class BasicPerson extends Person {
                       
                       
                       
-           timeline.playFromStart();
 
+             ab.getTekstVakModel().setTimeline(timeline);
         }else{
-            getSaaieTijdlijn(ab).playFromStart();
+            ab.getTekstVakModel().setTimeline(getSaaieTijdlijn(ab));
         }
     }
     
