@@ -3,6 +3,15 @@
 <wereld id="2">
     <xme>60</xme>
     <yme>50</yme>
+    <teleports>
+        <teleport>
+            <x>400</x>
+            <y>270</y>
+            <width>20</width>
+            <height>25</height>
+            <location>Wereld.xml</location>
+        </teleport>
+    </teleports>
     <basicpersons>
         <person name="testpersoon a">
             <x>100</x>
