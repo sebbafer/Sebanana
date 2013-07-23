@@ -35,7 +35,7 @@ public class Modelverzameling implements Observable{
         map = new HashMap<>();
         opslag = "Wereld.xml";
         map.put(opslag,new ObjectenOpslag(null));
-        this.rz = new Rugzak();
+        this.rz = new Rugzak(this);
         this.pm = new PlayerModel();
     }
 /*

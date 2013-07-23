@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import sebanana.models.Modelverzameling;
 
 /**
@@ -22,6 +23,7 @@ public class Item  extends Figureke implements Spatiebaar{
    private Image image;
    private int id;
    private String color;
+   private boolean eetbaar;
 
    public Item() {
        super.setFill(Color.GREEN);
@@ -124,7 +126,25 @@ public class Item  extends Figureke implements Spatiebaar{
     }
     
     
+    /*
+     * saai
+     */
+    public boolean isEetbaar(){
+        return eetbaar;
+    }
+   
+    @XmlElement (name = "eetbaar")
+    public void setSaai(String eetbaar){
+        this.eetbaar = Boolean.parseBoolean(eetbaar);
+    }
     
+    public String getSaai(){
+        return Boolean.toString(eetbaar);
+    }
+    
+    public void setSaai(boolean eetbaar){
+       this.eetbaar=eetbaar;
+    }
     
     /*
      * spatiebaar
@@ -146,8 +166,8 @@ public class Item  extends Figureke implements Spatiebaar{
 
     @Override
     public void doAction(Modelverzameling ab) {
-        doPersonageBeinvloeding(ab);
         ab.getTekstVakModel().setText("je vond " + getName());
+        if(!isEetbaar()){ doPersonageBeinvloeding(ab);}
         /*
          * verplaatsen
          */
@@ -160,12 +180,19 @@ public class Item  extends Figureke implements Spatiebaar{
         return ITEM;
     }
     
+    
     public boolean hasKlik(){
         return true;
     }
     
-    public void Klik(){
-        System.out.println(getName());
+    public void Klik(Modelverzameling mv){
+        if(isEetbaar()){
+            doPersonageBeinvloeding(mv);
+            mv.getTekstVakModel().setText("Je at een "+getName());
+            mv.getRugzak().remove(this);
+        }else{
+            mv.getTekstVakModel().setText("dit is een "+getName());
+        }
     }
 
 }

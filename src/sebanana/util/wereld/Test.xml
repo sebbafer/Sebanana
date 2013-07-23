@@ -21,6 +21,7 @@
             <geef>Hier is een snoepje</geef>
             <item name="snoepje" id="211">
                 <afbeelding>snoepje.png</afbeelding>
+                <eetbaar>true</eetbaar>
             </item>
             <zinnen>
                 <zin>mijn snoepjes zijn op joh</zin>

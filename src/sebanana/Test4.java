@@ -43,7 +43,7 @@ public class Test4 extends Application {
         
       
         primaryStage.setWidth(800);
-        primaryStage.setHeight(600);
+        primaryStage.setHeight(700);
         primaryStage.show();
     }
 

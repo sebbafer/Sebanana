@@ -59,6 +59,7 @@
             <item name="snoepje" id="211">
                 <afbeelding>snoepje.png</afbeelding>
                 <color>red</color>
+                <eetbaar>true</eetbaar>
             </item>
             <zinnen>
                 <zin>bedankt voor klaverjte</zin>
@@ -105,13 +106,15 @@
             <item name="snoepje" id="211">
                 <afbeelding>snoepje.png</afbeelding>
                 <color>red</color>
+                <eetbaar>true</eetbaar>
+                <happiness>50</happiness>
             </item>
             <zinnen>
                 <zin>je hebt al iets gekregen</zin>
                 <zin>ok</zin>
                 <zin>totziens!</zin>
             </zinnen>
-            <happiness>15</happiness>
+            <happiness>5</happiness>
         </person>
          <person name="jantje">
             <x>20</x>

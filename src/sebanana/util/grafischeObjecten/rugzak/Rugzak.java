@@ -3,7 +3,11 @@ package sebanana.util.grafischeObjecten.rugzak;
 import java.util.Iterator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -12,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import sebanana.models.Modelverzameling;
 import sebanana.util.grafischeObjecten.figureke.Item;
 
 /**
@@ -23,7 +28,7 @@ public class Rugzak extends VBox{
     private final ObservableList<Item> lijst = FXCollections.observableArrayList();
     private RugzakLezer rl;
 
-    public Rugzak() {
+    public Rugzak(Modelverzameling mv) {
         leesmxl(); 
         
         tabel = new TableView<>(lijst);
@@ -32,7 +37,7 @@ public class Rugzak extends VBox{
 
         k.setCellValueFactory( new PropertyValueFactory<Item,Image>("Image"));
 
-        ItemImageCellFactory cf = new ItemImageCellFactory();
+        ItemImageCellFactory cf = new ItemImageCellFactory(mv);
         k.setCellFactory(cf);
         k.setEditable(false);
        // k.setMinWidth(75);
@@ -42,6 +47,18 @@ public class Rugzak extends VBox{
         this.getStyleClass().add("rugzak");
         
         this.getChildren().add(tabel);
+        
+        //menu
+//        ContextMenu menu = new ContextMenu();
+//        MenuItem item = new MenuItem("you can click me");
+//          item.setOnAction(new EventHandler<ActionEvent>() {
+//               @Override
+//               public void handle(ActionEvent event) {
+//                    System.out.println("you've clicked the menu item");
+//               }
+//          });
+//          menu.getItems().add(item);
+//          tabel.setContextMenu(menu);
         
     
     }
