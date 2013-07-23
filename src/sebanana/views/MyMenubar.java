@@ -32,6 +32,10 @@ public class MyMenubar extends MenuBar{
     @FXML
     private MenuItem cheat1;
     @FXML
+    private MenuItem cheat2;
+    @FXML
+    private MenuItem cheat3;
+    @FXML
     private MenuItem over;
     private final Modelverzameling mv;
     
@@ -82,7 +86,21 @@ public class MyMenubar extends MenuBar{
          mv.doSaveTest();
      }
      
+     //fxml exit
      public void exit(){
          Platform.exit();
+     }
+     
+     //fxml cheat1
+     public void extraEnergy(){
+         mv.getPlayerModel().addEnergy(25);
+     }
+     
+     public void extraHappiness(){
+         mv.getPlayerModel().addHappiness(25);         
+     }
+     
+     public void addPoints(){
+         mv.getPlayerModel().addPoints(100);                  
      }
 }

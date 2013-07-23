@@ -20,7 +20,9 @@
       <items>
         <Menu mnemonicParsing="false" text="Cheats">
           <items>
-            <MenuItem mnemonicParsing="false" text="Extra energy" fx:id="cheat1" />
+            <MenuItem mnemonicParsing="false" onAction="#extraEnergy" text="Extra energy" fx:id="cheat1" />
+            <MenuItem mnemonicParsing="false" onAction="#extraHappiness" text="Extra happiness" fx:id="cheat2" />
+            <MenuItem mnemonicParsing="false" onAction="#addPoints" text="Extra points" fx:id="cheat3" />
           </items>
         </Menu>
         <MenuItem mnemonicParsing="false" onAction="#showAboutWindow" text="Over" fx:id="over" />

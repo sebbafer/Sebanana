@@ -31,6 +31,11 @@ public class PlayerLuisteraar implements InvalidationListener{
             mv.getPlayerModel().setDood(true);
             return;
         }
+        if(mv.getPlayerModel().isDood() && pm.getHappiness()>=0 && pm.getEnergy()>=0 ){
+            mv.getPlayerModel().setDood(false);
+            mv.getTekstVakModel().makeEmpty();
+            return;
+        }
 //        if(pm.getEnergy()<25){
 //            mv.getTekstVakModel().setText("Weinig energy");
 //            return;
