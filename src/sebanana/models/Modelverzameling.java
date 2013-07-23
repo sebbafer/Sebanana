@@ -28,7 +28,7 @@ public class Modelverzameling implements Observable{
 
     public Modelverzameling() {
         this.tv = new TekstvakModel();
-        this.opslag = new ObjectenOpslag(null);
+        this.opslag = new ObjectenOpslag(null,null);
         this.rz = new Rugzak();
         this.pm = new PlayerModel();
     }

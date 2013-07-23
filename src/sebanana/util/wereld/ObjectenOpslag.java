@@ -31,16 +31,18 @@ public class ObjectenOpslag extends Group{
     private World w;
     private final Me me;
 
-    public ObjectenOpslag( File file) {            
+    public ObjectenOpslag( File file, String string) {            
         /*
          * lezen
          */
         try {
             JAXBContext jc = JAXBContext.newInstance(World.class);
-            if(file == null){
+            if(file == null && string == null){
             w = (World) jc.createUnmarshaller().unmarshal(ObjectenOpslag.class.getResource("Wereld.xml"));
-            }else{
+            }else if( file != null){
             w = (World) jc.createUnmarshaller().unmarshal(file);
+            }else{
+            w = (World) jc.createUnmarshaller().unmarshal(ObjectenOpslag.class.getResource(string));
             }
         } catch (JAXBException ex) {
             throw new RuntimeException("JAXB:" + ex);
@@ -49,30 +51,34 @@ public class ObjectenOpslag extends Group{
         /*
          * tegenloopbaar
          */
+        if(w.getBuildings() != null){
         for(Building b : w.getBuildings()){
            tegenloopbaredingen.add(b);
            this.getChildren().add(b.getNode());
-        }
+        }}
         
+        if(w.getTeleports()!= null){
          for(Teleport b : w.getTeleports()){
            tegenloopbaredingen.add(b);
            this.getChildren().add(b.getNode());
-        }
+        }}
         
         tegenloopbaredingen.add(new randen());
         
         /*
          * spatiebaar
          */
+         if(w.getBasicPersons()!= null){
          for(BasicPerson b : w.getBasicPersons()){
             spatiesdingen.add(b);
             this.getChildren().add(b.getNode());
-        }
+        }}
         
+        if(w.getItems()!= null){
         for(Item b : w.getItems()){
             spatiesdingen.add(b);
             this.getChildren().add(b.getNode());
-        }
+        }}
        /*
         * me blokje
         */

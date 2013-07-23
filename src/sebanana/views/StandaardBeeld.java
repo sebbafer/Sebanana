@@ -108,8 +108,10 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
          * het enige dat veranderd is de objectenopslag moet ergens bijgehouden worden => actiebenodigdheden is een soort bundel van model (rz en opslag zijn model en view ineen want da lijkt meest efficient denk ik)
          * opslag = model.getobjectenopslag();
          */
+        getChildren().remove(opslag);
         this.opslag=mv.getObjectenOpslag();
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.me=mv.getObjectenOpslag().getMe();
+        getChildren().add(opslag);
     }
 
     public Modelverzameling getModel(){

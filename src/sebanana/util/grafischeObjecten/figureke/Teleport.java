@@ -5,13 +5,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import sebanana.models.Modelverzameling;
+import sebanana.util.grafischeObjecten.personage.Me;
+import sebanana.util.wereld.ObjectenOpslag;
 
 /**
  *
  * @author Ellen
  */
 public class Teleport extends Figureke implements Tegenloopbaar{
-    private static final String TELEPORT = "Teleport";
+    private static final String TELEPORT = "teleport";
     private Shape shape;
     private double height;
     private double width;
@@ -67,8 +69,14 @@ public class Teleport extends Figureke implements Tegenloopbaar{
 
     @Override
     public boolean erTegen(double nx, double ny) {
-       // return nx > getX() && ny > getY() && nx < getX()+getWidth() && ny < getY() + getHeight();
-        return nx==getX() && ny==getY();
+        // return nx > getX() && ny > getY() && nx < getX()+getWidth() && ny < getY() + getHeight();
+        double o = Me.getOFFSET();
+        return     nx >= getX() +o
+                && nx <= getX() + getWidth() -o
+                
+                && ny >= getY() +o
+                && ny <= getY() + getHeight() -o;
+      //  return nx==getX() && ny==getY();
     }
 
     @Override
@@ -79,6 +87,8 @@ public class Teleport extends Figureke implements Tegenloopbaar{
     @Override
     public void doAction(Modelverzameling mv) {
         System.out.println("teleport naar " + getLocation());
+        ObjectenOpslag opslag = new ObjectenOpslag(null, getLocation());
+        mv.setObjectenOpslag(opslag);
     }
     
 }

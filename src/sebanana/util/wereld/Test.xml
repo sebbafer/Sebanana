@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wereld id="2">
+    <xme>60</xme>
+    <yme>50</yme>
+    <basicpersons>
+        <person name="testpersoon a">
+            <x>100</x>
+            <y>100</y>
+            <radius>10</radius>
+            <hello>Hallo! wat leuk dat je me gevonden hebt</hello>
+            <geef>Hier is een snoepje</geef>
+            <item name="snoepje" id="211">
+                <afbeelding>snoepje.png</afbeelding>
+            </item>
+            <zinnen>
+                <zin>mijn snoepjes zijn op joh</zin>
+                <zin>daaag</zin>
+            </zinnen>
+            <points>900</points>
+            <happiness>60</happiness>
+            <energy>-20</energy>
+        </person>
+    </basicpersons>
+    <items>
+        <item name="roos" id="22">
+            <x>370</x>
+            <y>210</y>
+            <points>40</points>
+            <width>5</width>
+            <height>5</height>
+            <afbeelding>rose.png</afbeelding>
+            <color>red</color>
+        </item>
+    </items>
+</wereld>
+

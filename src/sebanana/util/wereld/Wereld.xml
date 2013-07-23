@@ -7,11 +7,11 @@
     <yme>10</yme>
     <teleports>
         <teleport>
-            <x>350</x>
+            <x>400</x>
             <y>270</y>
-            <width>10</width>
-            <height>10</height>
-            <location>test.xml</location>
+            <width>20</width>
+            <height>25</height>
+            <location>Test.xml</location>
         </teleport>
     </teleports>
     <buildings>
@@ -38,6 +38,12 @@
             <y>200</y>
             <width>100</width>
             <height>100</height>
+        </building>
+         <building name="gebouw met ingang">
+            <x>420</x>
+            <y>250</y>
+            <width>70</width>
+            <height>125</height>
         </building>
     </buildings>
     <basicpersons>
