@@ -30,6 +30,18 @@
             <happiness>60</happiness>
             <energy>-20</energy>
         </person>
+        <person name="Jan van geel">
+            <x>90</x>
+            <y>20</y>
+            <radius>10</radius>
+            <saai>true</saai>
+            <zinnen>
+                <zin>Affien assenstelsel, lineaire combinatie</zin>
+            </zinnen>
+            <points>-1000</points>
+            <happiness>-100</happiness>
+            <energy>-100</energy>
+        </person>
     </basicpersons>
     <items>
         <item name="roos" id="22">

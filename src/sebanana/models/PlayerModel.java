@@ -7,6 +7,7 @@ import javafx.beans.Observable;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.XmlElement;
 import sebanana.util.grafischeObjecten.personage.PlayerInfoLezer;
 
 /**
@@ -22,6 +23,7 @@ public class PlayerModel implements Observable{
     private int points;
      // naam van de speler
     private String name;
+    private boolean dood;
 
     public PlayerModel() {
         leesmxl();
@@ -100,6 +102,33 @@ public class PlayerModel implements Observable{
         this.name = name;
         fireInvalidationEvent();
         }
+    }
+    
+    
+    
+    
+    /*
+     * levend of dood
+     */
+    public boolean isDood(){
+        return dood;
+    }
+    
+    public boolean isLevend(){
+        return !dood;
+    }
+   
+    @XmlElement (name = "dood")
+    public void setDood(String dood){
+        this.dood = Boolean.parseBoolean(dood);
+    }
+    
+    public String getSaai(){
+        return Boolean.toString(dood);
+    }
+    
+    public void setDood(boolean dood){
+       this.dood=dood;
     }
     
     /*

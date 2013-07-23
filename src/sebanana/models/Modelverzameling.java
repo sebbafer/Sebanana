@@ -22,11 +22,11 @@ public class Modelverzameling implements Observable{
     //alle items personen en bebouwen etc
     private String opslag;
     //al verzamelde items
-    private Rugzak rz;
+    private final Rugzak rz;
     //tekst die op label moet staan
-    private TekstvakModel tv;
+    private final TekstvakModel tv;
     //informatie over speler, energy, punten etc
-    private PlayerModel pm;
+    private final PlayerModel pm;
     
     private Map<String, ObjectenOpslag> map;
 

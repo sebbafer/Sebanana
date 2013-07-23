@@ -101,40 +101,43 @@ public abstract class Person extends Figureke implements Spatiebaar{
     
     public Timeline  getSaaieTijdlijn(final Modelverzameling ab){
        if(timeline == null){
-            if(zinnen.size() == 1){
+           int laatste=0; 
+           if(zinnen.size() == 1){
              timeline = new Timeline();
                           timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(0),
                                   new EventHandler() {
                                          @Override
                                           public void handle(Event event) {
                                                 ab.getTekstVakModel().setText(zinnen.get(0));
-                                                doPersonageBeinvloeding(ab);
                                          }
                                 }));
-                           timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),
-                                  new EventHandler() {
-                                         @Override
-                                          public void handle(Event event) {
-
-                                         }
-                                }));
+                    
                }else{
                             timeline = new Timeline();
-                            for(int i=0; i < zinnen.size(); i++){
+                              for(int i=0; i < zinnen.size(); i++){
                               final int hulp = i;
+                              laatste=i;
                               timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(hulp),
                                       new EventHandler() {
                                              @Override
                                               public void handle(Event event) {
-                                                 if(hulp==0){
-                                                     doPersonageBeinvloeding(ab);
-                                                 }
-                                                    ab.getTekstVakModel().setText(zinnen.get(hulp));
+                                                 ab.getTekstVakModel().setText(zinnen.get(hulp));
                                              }
                                     }));
                                 }
-                         }
+                            
+                    }
 
+          timeline.getKeyFrames().add(new KeyFrame(Duration.millis(500+laatste*1000),
+                  new EventHandler() {
+                         @Override
+                          public void handle(Event event) {
+                            doPersonageBeinvloeding(ab);
+                         }
+                }));
+                        
+            
+            
        }
        
        return timeline;

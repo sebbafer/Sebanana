@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javax.xml.bind.JAXBException;
+import sebanana.luisteraars.PlayerLuisteraar;
 import sebanana.models.Modelverzameling;
 import sebanana.views.StandaardBeeld;
 
@@ -42,6 +43,7 @@ public class Test3 extends Application {
         
         StandaardBeeld sb = new StandaardBeeld();
         ab=sb.getModel();
+        new PlayerLuisteraar(ab);
         root.getChildren().add(sb);
         
         

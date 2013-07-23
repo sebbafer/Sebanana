@@ -69,6 +69,9 @@ public class StandaardBeeld extends Pane implements InvalidationListener {
 
             @Override
             public void handle(KeyEvent t) {
+                if(mv.getPlayerModel().isDood()){
+                    return;
+                }
                 
                 if(Me.isVerplaatsing(t)){
                     mv.getTekstVakModel().makeEmpty();
