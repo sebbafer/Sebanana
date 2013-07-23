@@ -8,7 +8,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import sebanana.util.grafischeObjecten.personage.PlayerInfoLezer;
-import sebanana.util.grafischeObjecten.rugzak.RugzakLezer;
 
 /**
  *
@@ -124,6 +123,9 @@ public class PlayerModel implements Observable{
         }
     }
     
+    /*
+     * xml
+     */
     public void doSaveTest(){
           try {
               PlayerInfoLezer pi = new PlayerInfoLezer();
