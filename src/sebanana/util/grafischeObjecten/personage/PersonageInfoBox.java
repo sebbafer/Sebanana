@@ -40,6 +40,7 @@ public class PersonageInfoBox extends GridPane implements Initializable, Invalid
             this.getStyleClass().add("personageinfobox");
             pm = new PlayerModel();
             pm.addListener(this);
+            invalidated(pm);
     }
 
     public PersonageInfoBox(PlayerModel pm) {
@@ -47,6 +48,7 @@ public class PersonageInfoBox extends GridPane implements Initializable, Invalid
             this.getStyleClass().add("personageinfobox");
             this.pm=pm;
             pm.addListener(this);
+            invalidated(pm);
     }
     
 
@@ -78,7 +80,6 @@ public class PersonageInfoBox extends GridPane implements Initializable, Invalid
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
     }
 
     @Override

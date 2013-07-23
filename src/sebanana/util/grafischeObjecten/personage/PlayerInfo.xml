@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<player>
+    <points>10</points>
+    <happiness>50</happiness>
+    <energy>50</energy>
+    <name>Sebanana</name>
+</player>

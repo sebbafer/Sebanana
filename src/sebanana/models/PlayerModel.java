@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import sebanana.util.grafischeObjecten.personage.PlayerInfoLezer;
 
 /**
  *
@@ -12,20 +15,34 @@ import javafx.beans.Observable;
 public class PlayerModel implements Observable{
      // gegevens over de speler
      // waarde tussen 0 en 100
-    private int happiness=50;
-    private int energy=50;
+    private int happiness;
+    private int energy;
      // behaald aantal punten in het spel
     private int points;
      // naam van de speler
     private String name;
 
-    
+    public PlayerModel() {
+        leesmxl();
+    }
+        
+
     
     private boolean juisteWaarde(int waarde, int huidige){
 //        if(!(huidige+waarde >=0 && huidige+waarde <=100)){
 //            throw new IllegalArgumentException("waarde " + waarde + " te hoog");
 //        }
         return waarde != 0 ;
+    }
+    
+    private int controlleer(int waarde) {
+        if (waarde <= 0)
+            return 0;
+        if (waarde >=100)
+            return 100;
+        
+        return waarde;
+        
     }
     
     public int getHappiness() {
@@ -35,6 +52,7 @@ public class PlayerModel implements Observable{
     public void addHappiness(int happiness) {
         if(juisteWaarde(happiness, this.happiness)){
         this.happiness += happiness;
+        this.happiness=controlleer(this.happiness);
         fireInvalidationEvent();
         }
     }
@@ -46,6 +64,7 @@ public class PlayerModel implements Observable{
     public void addEnergy(int energy) {
         if(juisteWaarde(energy,this.energy)){
         this.energy += energy;
+        this.energy=controlleer(this.energy);
         fireInvalidationEvent();
         }
     }
@@ -106,5 +125,23 @@ public class PlayerModel implements Observable{
     public void doSaveTest(){
         System.out.println("TODO");
     }
+    
+    private void leesmxl() throws RuntimeException {
+        try {
+            JAXBContext jc = JAXBContext.newInstance(PlayerInfoLezer.class);
+            PlayerInfoLezer pi = (PlayerInfoLezer) jc.createUnmarshaller().unmarshal(PlayerInfoLezer.class.getResource("PlayerInfo.xml"));
+            name = pi.getName();
+            points = pi.getPoints();
+            happiness = pi.getHappiness();
+            energy = pi.getEnergy();
+            fireInvalidationEvent();
+        } catch (JAXBException ex) {
+            throw new RuntimeException("JAXB:" + ex);
+        } 
+        
+    }
+
+
+
     
 }

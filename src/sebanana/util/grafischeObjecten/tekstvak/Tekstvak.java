@@ -35,6 +35,7 @@ public class Tekstvak extends HBox implements Initializable, InvalidationListene
         
         this.model=model;
         this.model.addListener(this);
+        invalidated(model);
     }
     
     public Tekstvak(){
@@ -44,6 +45,7 @@ public class Tekstvak extends HBox implements Initializable, InvalidationListene
         
         this.model=new TekstvakModel();
         this.model.addListener(this);
+        invalidated(model);
     }
     
     
