@@ -26,6 +26,7 @@ import sebanana.util.grafischeObjecten.personage.Me;
  * @author Ellen
  * 
  * TODO: toch is wat mooier maken :p
+ * nu ist echt crappy 
  */
 public class ObjectenOpslag extends Group implements InvalidationListener{
     int height = 400;

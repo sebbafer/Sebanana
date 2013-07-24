@@ -29,7 +29,8 @@ public class Item  extends Figureke implements Spatiebaar{
    private String color;
    private boolean eetbaar;
    private ContextMenu contextMenu;
-   private ImageView iv;
+   private ImageView miniminiImageView;
+    private ImageView gewoonImageView;
 
    public Item() {
        super.setFill(Color.GREEN);
@@ -60,27 +61,27 @@ public class Item  extends Figureke implements Spatiebaar{
      */
     @Override
     public Node getNode() {
-        if (iv == null){
-            iv = new ImageView(getImage());
-            iv.setFitHeight(height);
-            iv.setFitWidth(width);
-            iv.setTranslateX(getX());
-            iv.setTranslateY(getY());
+        if (miniminiImageView == null){
+            miniminiImageView = new ImageView(getImage());
+            miniminiImageView.setFitHeight(height);
+            miniminiImageView.setFitWidth(width);
+            miniminiImageView.setTranslateX(getX());
+            miniminiImageView.setTranslateY(getY());
         }
-        return iv;
+        return miniminiImageView;
         
         //return getShape();
    }
 
     public ImageView getImageView() {
-        if(iv==null){
-            iv = new ImageView(getImage());
-            //iv.setFitHeight(50);
-            //iv.setFitWidth(30);
-            iv.setFitHeight(50);
-            iv.setFitWidth((getImage().getWidth()/5));
+        if(gewoonImageView==null){
+            gewoonImageView = new ImageView(getImage());
+            //iv2.setFitHeight(50);
+            //iv2.setFitWidth(30);
+            gewoonImageView.setFitHeight(50);
+            gewoonImageView.setFitWidth((getImage().getWidth()/5));
         }
-        return iv;
+        return gewoonImageView;
     }
     
     
