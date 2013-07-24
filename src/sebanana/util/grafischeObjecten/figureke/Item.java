@@ -61,16 +61,18 @@ public class Item  extends Figureke implements Spatiebaar{
      */
     @Override
     public Node getNode() {
-        if (miniminiImageView == null){
-            miniminiImageView = new ImageView(getImage());
-            miniminiImageView.setFitHeight(height);
-            miniminiImageView.setFitWidth(width);
-            miniminiImageView.setTranslateX(getX());
-            miniminiImageView.setTranslateY(getY());
+        if(getImage() != null){
+            if (miniminiImageView == null){
+                miniminiImageView = new ImageView(getImage());
+                miniminiImageView.setFitHeight(height);
+                miniminiImageView.setFitWidth(width);
+                miniminiImageView.setTranslateX(getX());
+                miniminiImageView.setTranslateY(getY());
+            }
+            return miniminiImageView;
+        }else{
+            return getShape();
         }
-        return miniminiImageView;
-        
-        //return getShape();
    }
 
     public ImageView getImageView() {

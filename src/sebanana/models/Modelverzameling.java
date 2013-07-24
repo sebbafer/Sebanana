@@ -92,6 +92,10 @@ public class Modelverzameling implements Observable{
         
         pm.newGame();
         
+        //objectenopslag houd te veel bij dus dees is ff gemakkelijker
+        for(ObjectenOpslag m : map.values()){
+            m.newGame();
+        }
         map.clear();
         opslag = "Wereld.xml";
         map.put(opslag,new ObjectenOpslag(opslag, im));

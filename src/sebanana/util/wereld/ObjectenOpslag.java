@@ -38,8 +38,10 @@ public class ObjectenOpslag extends Group implements InvalidationListener{
     
     private World w;
     private final Me me;
+    private final InstellingenModel mv;
 
     public ObjectenOpslag(String locatie, InstellingenModel mv) {
+        this.mv=mv;
         mv.addListener(this);
         /*
          * lezen
@@ -257,4 +259,7 @@ public class ObjectenOpslag extends Group implements InvalidationListener{
         return w.getName();
     }
      
+    public void newGame(){
+        mv.removeListener(this);
+    }
 }
