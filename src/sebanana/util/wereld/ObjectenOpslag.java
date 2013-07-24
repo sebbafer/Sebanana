@@ -32,7 +32,7 @@ public class ObjectenOpslag extends Group implements InvalidationListener{
     int width = 550;
     private final ObservableList<Tegenloopbaar> tegenloopbaredingen = FXCollections.observableArrayList();
     private final ObservableList<Spatiebaar> spatiesdingen = FXCollections.observableArrayList();
-    
+    private final ObservableList<Figureke> zichtbaredingen = FXCollections.observableArrayList();
     private boolean toonShape;
     
     private World w;
@@ -53,21 +53,23 @@ public class ObjectenOpslag extends Group implements InvalidationListener{
         } catch (JAXBException ex) {
             throw new RuntimeException("JAXB:" + ex);
         } 
-
-        toonShape=true;
+        /*
+         * beetje valsspelen
+         */
+        toonShape=(!mv.getToonShape());
         /*
          * tegenloopbaar
          */
         if(w.getBuildings() != null){
         for(Building b : w.getBuildings()){
            tegenloopbaredingen.add(b);
-           this.getChildren().add(b.getNode());
+           zichtbaredingen.add(b);
         }}
         
         if(w.getTeleports()!= null){
          for(Teleport b : w.getTeleports()){
            tegenloopbaredingen.add(b);
-           this.getChildren().add(b.getNode());
+           zichtbaredingen.add(b);
         }}
         
         tegenloopbaredingen.add(new randen());
@@ -78,25 +80,29 @@ public class ObjectenOpslag extends Group implements InvalidationListener{
          if(w.getBasicPersons()!= null){
          for(BasicPerson b : w.getBasicPersons()){
             spatiesdingen.add(b);
-            this.getChildren().add(b.getNode());
+            zichtbaredingen.add(b);
         }}
         
         if(w.getItems()!= null){
         for(Item b : w.getItems()){
             spatiesdingen.add(b);
-            this.getChildren().add(b.getNode());
-        }}
+            zichtbaredingen.add(b);
+       }}
        /*
         * me blokje
         */
         me = new Me(5.0, 10.0);
         me.verplaats(w.getXme(), w.getYme());
         this.getChildren().add(me.getNode());
+        
+        invalidated(mv);
     }
 
     public void verwijder(Item item){
+        zichtbaredingen.remove(item);
         //verwijderen van beeld
         this.getChildren().remove(item.getNode());
+        this.getChildren().remove(item.getShape());
         //verwijderen uit spatie lijst
         spatiesdingen.remove(item);
         //verwijderen uit world
@@ -178,17 +184,27 @@ public class ObjectenOpslag extends Group implements InvalidationListener{
         if(observable.getClass().equals(InstellingenModel.class)){
             InstellingenModel im = (InstellingenModel) observable;
             if(im.getToonShape() != toonShape){
+                for(Figureke i: zichtbaredingen){
+                    this.getChildren().remove(i.getNode());
+                    this.getChildren().remove(i.getShape());
+                }
                 //this.getChildren().clear();
                 if(im.getToonShape()){
                     toonShape=true;
                     System.out.println("Toon figuren");
+                    for(Figureke i: zichtbaredingen){
+                        this.getChildren().add(i.getShape());
+                    }
                 }else{
                     toonShape=false;
                     System.out.println("Toon afbeeldingen");
-                  
+                    for(Figureke i: zichtbaredingen){
+                        this.getChildren().add(i.getNode());
+                    }                  
                     
                 }
             }
+            me.getShape().toFront();
         }
     }
 

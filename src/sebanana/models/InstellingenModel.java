@@ -13,7 +13,7 @@ public class InstellingenModel implements Observable{
    /*
     * toon afbeelding of shape => items
     */
-    private boolean toonShape=true;
+    private boolean toonShape=false;
 
     public boolean getToonShape() {
         return toonShape;
