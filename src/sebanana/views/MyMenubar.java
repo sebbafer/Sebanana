@@ -87,7 +87,7 @@ public class MyMenubar extends MenuBar{
 
      //fxml => newgame
      public void newGame(){
-         System.out.println("klik new game");
+         mv.newGame();
      }
      
      //fxml => open

@@ -168,6 +168,10 @@ public class PlayerModel implements Observable{
         }    
     }
     
+    public void newGame(){
+        leesmxl();
+    }
+    
     private void leesmxl() throws RuntimeException {
         try {
             JAXBContext jc = JAXBContext.newInstance(PlayerInfoLezer.class);

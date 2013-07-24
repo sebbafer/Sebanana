@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sebanana.models;
 
 import java.util.ArrayList;
@@ -82,6 +78,23 @@ public class Modelverzameling implements Observable{
             o.doSaveTest();
         }
         pm.doSaveTest();
+    }
+    
+    public void newGame(){
+        
+        pm.newGame();
+        
+        map.clear();
+        opslag = "Wereld.xml";
+        map.put(opslag,new ObjectenOpslag(null));
+        
+        rz.newGame();
+
+        tv.makeEmpty();
+        tv.setText("Welcome");
+        
+        fireInvalidationEvent();
+        
     }
     
 /*

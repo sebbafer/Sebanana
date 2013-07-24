@@ -138,4 +138,9 @@ public class Rugzak extends VBox{
             lijst.add(i);
         }
     }
+    
+    public void newGame(){
+        lijst.clear();
+        leesmxl();
+    }
 }
