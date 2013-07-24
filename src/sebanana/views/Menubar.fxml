@@ -10,6 +10,8 @@
   <menus>
     <Menu mnemonicParsing="false" text="Bestand">
       <items>
+        <MenuItem mnemonicParsing="false" onAction="#newGame" text="New Game" fx:id="newgame" />
+        <MenuItem mnemonicParsing="false" onAction="#open" text="Open" fx:id="open" />
         <MenuItem mnemonicParsing="false" onAction="#doSave" text="Save" fx:id="save" />
         <SeparatorMenuItem mnemonicParsing="false" />
         <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" fx:id="exit" />

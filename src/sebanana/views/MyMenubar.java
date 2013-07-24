@@ -26,6 +26,10 @@ public class MyMenubar extends MenuBar{
     @FXML
     private MenuBar menubar;
     @FXML
+    private MenuItem newgame;
+    @FXML
+    private MenuItem open;
+    @FXML
     private MenuItem save;
     @FXML
     private MenuItem exit;
@@ -80,7 +84,16 @@ public class MyMenubar extends MenuBar{
         
         aboutwin.showAndWait();
     }
+
+     //fxml => newgame
+     public void newGame(){
+         System.out.println("klik new game");
+     }
      
+     //fxml => open
+     public void open(){
+         System.out.println("klik open");
+     }     
      //fxml => save
      public void doSave(){
          mv.doSaveTest();
@@ -103,4 +116,6 @@ public class MyMenubar extends MenuBar{
      public void addPoints(){
          mv.getPlayerModel().addPoints(100);                  
      }
+     
+
 }
