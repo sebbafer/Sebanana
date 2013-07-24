@@ -25,7 +25,7 @@ public class Test4 extends Application {
     
     @Override
     public void start(final Stage primaryStage) throws JAXBException {
-        primaryStage.setTitle("Test3");
+        primaryStage.setTitle("Test4");
         root=new BorderPane();
 
         StandaardBeeld sb = new StandaardBeeld();

@@ -15,6 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sebanana.models.Modelverzameling;
 import sebanana.views.aboutwin.AboutWindow;
+import sebanana.views.instellingenwin.InstellingenStage;
 
 /**
  *
@@ -121,7 +122,7 @@ public class MyMenubar extends MenuBar{
      
      public void toonInstellingen(){
          System.out.println("toon instellingen");
-         mv.getInstellingenModel().setToonShape(!mv.getInstellingenModel().getToonShape());
+         new InstellingenStage(mv).showAndWait();
      }
 
 }
