@@ -23,14 +23,18 @@ public class Modelverzameling implements Observable{
     private final TekstvakModel tv;
     //informatie over speler, energy, punten etc
     private final PlayerModel pm;
+    private final InstellingenModel im;
     
     private Map<String, ObjectenOpslag> map;
 
     public Modelverzameling() {
+        this.im = new InstellingenModel();
         this.tv = new TekstvakModel();
+        
         map = new HashMap<>();
         opslag = "Wereld.xml";
-        map.put(opslag,new ObjectenOpslag(null));
+        map.put(opslag,new ObjectenOpslag(opslag, im));
+        
         this.rz = new Rugzak(this);
         this.pm = new PlayerModel();
     }
@@ -53,6 +57,10 @@ public class Modelverzameling implements Observable{
         return pm;
     }
 
+    public InstellingenModel getInstellingenModel() {
+        return im;
+    }
+
     public void setObjectenOpslag(String locatie){
         // if(this.opslag != opslag){
         //  this.opslag=new ObjectenOpslag( locatie);
@@ -62,7 +70,7 @@ public class Modelverzameling implements Observable{
         if(locatie == null ? this.opslag != null : !locatie.equals(this.opslag)){
             ObjectenOpslag get = map.get(locatie);
             if(get == null){
-                map.put(locatie, new ObjectenOpslag(locatie));
+                map.put(locatie, new ObjectenOpslag(locatie, im));
                 opslag = locatie;
                 fireInvalidationEvent();
             }else{
@@ -86,7 +94,7 @@ public class Modelverzameling implements Observable{
         
         map.clear();
         opslag = "Wereld.xml";
-        map.put(opslag,new ObjectenOpslag(null));
+        map.put(opslag,new ObjectenOpslag(opslag, im));
         
         rz.newGame();
 

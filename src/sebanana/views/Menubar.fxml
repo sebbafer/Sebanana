@@ -17,7 +17,11 @@
         <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" fx:id="exit" />
       </items>
     </Menu>
-    <Menu mnemonicParsing="false" text="Bewerken" />
+    <Menu mnemonicParsing="false" text="Bewerken">
+      <items>
+        <MenuItem mnemonicParsing="false" onAction="#toonInstellingen" text="Instellingen" fx:id="toonInstellingen" />
+      </items>
+    </Menu>
     <Menu mnemonicParsing="false" text="Hulp">
       <items>
         <Menu mnemonicParsing="false" text="Cheats">

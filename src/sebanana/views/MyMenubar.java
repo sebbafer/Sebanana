@@ -34,6 +34,8 @@ public class MyMenubar extends MenuBar{
     @FXML
     private MenuItem exit;
     @FXML
+    private MenuItem instellingen;
+    @FXML
     private MenuItem cheat1;
     @FXML
     private MenuItem cheat2;
@@ -117,5 +119,9 @@ public class MyMenubar extends MenuBar{
          mv.getPlayerModel().addPoints(100);                  
      }
      
+     public void toonInstellingen(){
+         System.out.println("toon instellingen");
+         mv.getInstellingenModel().setToonShape(!mv.getInstellingenModel().getToonShape());
+     }
 
 }

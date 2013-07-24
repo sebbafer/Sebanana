@@ -2,12 +2,15 @@ package sebanana.util.wereld;
 
 
 import java.io.File;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Group;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import sebanana.models.InstellingenModel;
 import sebanana.models.Modelverzameling;
 import sebanana.util.grafischeObjecten.figureke.BasicPerson;
 import sebanana.util.grafischeObjecten.figureke.Building;
@@ -21,17 +24,22 @@ import sebanana.util.grafischeObjecten.personage.Me;
 /**
  *
  * @author Ellen
+ * 
+ * TODO: toch is wat mooier maken :p
  */
-public class ObjectenOpslag extends Group{
+public class ObjectenOpslag extends Group implements InvalidationListener{
     int height = 400;
     int width = 550;
     private final ObservableList<Tegenloopbaar> tegenloopbaredingen = FXCollections.observableArrayList();
     private final ObservableList<Spatiebaar> spatiesdingen = FXCollections.observableArrayList();
     
+    private boolean toonShape;
+    
     private World w;
     private final Me me;
 
-    public ObjectenOpslag(String locatie) {            
+    public ObjectenOpslag(String locatie, InstellingenModel mv) {
+        mv.addListener(this);
         /*
          * lezen
          */
@@ -46,6 +54,7 @@ public class ObjectenOpslag extends Group{
             throw new RuntimeException("JAXB:" + ex);
         } 
 
+        toonShape=true;
         /*
          * tegenloopbaar
          */
@@ -162,6 +171,25 @@ public class ObjectenOpslag extends Group{
 
     public Me getMe() {
         return me;
+    }
+
+    @Override
+    public void invalidated(Observable observable) {
+        if(observable.getClass().equals(InstellingenModel.class)){
+            InstellingenModel im = (InstellingenModel) observable;
+            if(im.getToonShape() != toonShape){
+                //this.getChildren().clear();
+                if(im.getToonShape()){
+                    toonShape=true;
+                    System.out.println("Toon figuren");
+                }else{
+                    toonShape=false;
+                    System.out.println("Toon afbeeldingen");
+                  
+                    
+                }
+            }
+        }
     }
 
      
