@@ -1,12 +1,8 @@
 package sebanana.util.grafischeObjecten.rugzak;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
+import javafx.scene.Node;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 import sebanana.models.Modelverzameling;
@@ -48,9 +44,8 @@ public class ItemImageCellFactory<S, T> implements Callback<TableColumn<S, T>, T
             setGraphic(null);
         } else {
             //afbeelding
-            ImageView iv = new ImageView((Image) item);
-            iv.setFitHeight(50);
-            iv.setFitWidth(30);
+            Node iv =  (Node) item;
+
             
             setGraphic(iv);
                     
