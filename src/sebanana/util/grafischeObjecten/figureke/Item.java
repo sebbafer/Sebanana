@@ -75,7 +75,7 @@ public class Item  extends Figureke implements Spatiebaar{
         }
    }
 
-    public ImageView getImageView() {
+   public ImageView getImageView() {
         if(gewoonImageView==null){
             gewoonImageView = new ImageView(getImage());
             //iv2.setFitHeight(50);
@@ -210,7 +210,7 @@ public class Item  extends Figureke implements Spatiebaar{
     
 
 
-    public ContextMenu getContextMenu(final Modelverzameling mv){
+       public ContextMenu getContextMenu(final Modelverzameling mv){
         if(contextMenu == null){
             contextMenu = new ContextMenu();
             MenuItem menuItem1 = new MenuItem("Wat is het");
